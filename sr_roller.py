@@ -11,6 +11,7 @@ parser.add_argument('-s', '--show', action='store_true', help='Show dice rolls')
 # Set globals
 args = parser.parse_args()
 dice = args.dice
+json = {}
 hits = 0
 ones = 0
 sixes = 0
@@ -57,13 +58,14 @@ else:
 # Check if its a glitch or crit glitch
 if ones > dice/2:
   if hits == 0:
-    print "Critical Glitch!!!"
+    json['glitch'] = 'Critical Glitch'
   else:
-    print "Glitch!!!"
+    json['glitch'] = 'Glitch'
 # If they want to see the rolls, print them
 if args.show:
-  print sorted(rolls.values())
+  json['rolls'] = sorted(rolls.values())
   if edges:
-    print sorted(edges)
-# Print hits
-print "Hits: %d" % hits
+    json['edge'] = sorted(edges)
+#json
+json['hits'] = hits
+print json
