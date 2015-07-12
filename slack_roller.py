@@ -2,6 +2,7 @@
 # You will need to replace the values for:
 # url
 # request.form['token']
+# and create the channel #shadowrun
 ###
 
 #import argparse
