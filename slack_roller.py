@@ -1,3 +1,9 @@
+###
+# You will need to replace the values for:
+# url
+# request.form['token']
+###
+
 #import argparse
 from random import randint
 from flask import Flask
@@ -52,7 +58,7 @@ def req():
     text = ''
     payload = {}
     payload['icon_emoji'] = ':game_die:'
-    payload['channel'] = '#test'
+    payload['channel'] = '#shadowrun'
 
     if request.method == 'POST':
         if request.form['token'] != '<slack token>':
