@@ -9,7 +9,7 @@
 from random import randint
 from flask import Flask
 from flask import request
-import json, os
+import json, os, argparse
 app = Flask(__name__)
 
 # For number of dice requests sets a random number from 1-6
@@ -54,12 +54,22 @@ def req():
     roll_edge = False
     show_roll = False
     result = {}
+    attachments = []
     output = 'rolling'
     url = '<slack webhook url>'
     text = ''
     payload = {}
     payload['icon_emoji'] = ':game_die:'
     payload['channel'] = '#shadowrun'
+    payload['attachments'] = []
+    attachment = {"fallback":"SR dice roller for slack", "color":"danger"}
+    fields = []
+
+    parser = argparse.ArgumentParser(description='ShadowRun Dice roller')
+    parser.add_argument('dice', type=int, help='Number of dice to roll')
+    parser.add_argument('-e', '--edge', action='store_true', help='If set, exploding 6s')
+    parser.add_argument('-s', '--show', action='store_true', help='Show dice rolls')
+    parser.add_argument('msg', nargs='*')
 
     if request.method == 'POST':
         if request.form['token'] != '<slack token>':
@@ -67,12 +77,14 @@ def req():
         user = request.form['user_name']
         payload['username'] = user
         req = request.form['text'].split()
-
-        if len(req) > 3: return 'Too many fields'
-        for opt in req:
-            if opt == 'edge': roll_edge = True
-            elif opt == 'show': show_roll = True
-            else: dice = int(opt)
+        try:
+            args = parser.parse_args(req)
+        except:
+            return "Parse error.\nUsage: /roll [-s] [-e] dice [message]"
+        dice = args.dice
+        if args.edge: roll_edge = True
+        if args.show: show_roll = True
+        if args.msg: result['message'] = ' '.join(args.msg)
 
         rolls = roll(dice)
         hits,ones,sixes = count(rolls)
@@ -93,14 +105,18 @@ def req():
             output += ' with edge'
 
         result['hits'] = hits
-        for k,v in result.iteritems():text += "%s: %s " % (k,v)
-        payload['text'] = text
+        for k,v in result.iteritems():
+            field = {"title":k,"value":str(v),"short":True}
+            fields.append(field)
+            text += "%s: %s\n" % (k,v)
+        attachment['fields'] = fields
+        attachments.append(attachment)
+        payload['attachments'] = attachments
         payload = json.dumps(payload)
         command = "curl -X POST --data-urlencode 'payload=%s' %s" % (payload,url)
         os.system(command)
-            
-        print result
-        return output
+        print payload
+        return 'ok'
     else:
         return 'No POST'
         
