@@ -108,7 +108,8 @@ def req():
             result['edge'] = sorted(edges)
             output += ' with edge'
 
-        result['hits'] = '%s from %s dice' % (hits,dice)
+        result['hits'] = hits
+        result['dice'] = dice
         for k,v in result.iteritems():
             field = {"title":k,"value":str(v),"short":True}
             fields.append(field)
