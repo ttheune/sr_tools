@@ -46,7 +46,7 @@ def results(rolls, edges):
         if hits == 0: 
             result = 'Critical Glitch'
         else:
-            result = 'Glitch'
+            result = 'Glitch with ' + str(hits) + ' hits'
     else:
         result = str(hits) + ' hits'
     return result
