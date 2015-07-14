@@ -1,9 +1,9 @@
-###
-# You will need to replace the values for:
-# url
-# request.form['token']
-# and create the channel #shadowrun
-###
+'''
+You will need to replace the values for:
+url
+request.form['token']
+and create the channel #shadowrun
+'''
 
 #import argparse
 from random import randint
@@ -85,6 +85,10 @@ def req():
         if args.edge: roll_edge = True
         if args.show: show_roll = True
         if args.msg: result['message'] = ' '.join(args.msg)
+        if dice < 0:
+            return "We can't roll a negative number of dice"
+        if dice > 100:
+            return "%s is too many dice, we'll only roll 100 of them for you", dice
 
         rolls = roll(dice)
         hits,ones,sixes = count(rolls)
