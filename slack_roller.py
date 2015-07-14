@@ -69,6 +69,7 @@ def req():
     parser.add_argument('dice', type=int, help='Number of dice to roll')
     parser.add_argument('-e', '--edge', action='store_true', help='If set, exploding 6s')
     parser.add_argument('-s', '--show', action='store_true', help='Show dice rolls')
+    parser.add_argument('-i', '--invis', action='store_true', help='Hide die pool')
     parser.add_argument('msg', nargs='*')
 
     if request.method == 'POST':
@@ -85,6 +86,7 @@ def req():
         if args.edge: roll_edge = True
         if args.show: show_roll = True
         if args.msg: result['message'] = ' '.join(args.msg)
+        if not args.invis: result['dice'] = dice
         if dice < 0:
             return "We can't roll a negative number of dice"
         if dice > 100:
@@ -109,7 +111,6 @@ def req():
             output += ' with edge'
 
         result['hits'] = hits
-        result['dice'] = dice
         for k,v in result.iteritems():
             field = {"title":k,"value":str(v),"short":True}
             fields.append(field)
