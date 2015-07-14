@@ -65,7 +65,7 @@ def req():
     payload['icon_emoji'] = ':game_die:'
     payload['channel'] = '#shadowrun'
     payload['attachments'] = []
-    attachment = {"fallback":"SR dice roller for slack", "color":"danger"}
+    attachment = {"fallback":"SR dice roller for slack", "color":"danger", "mrkdwn_in": ["fields"]}
     fields = []
 
     parser = argparse.ArgumentParser(description='ShadowRun Dice roller')
