@@ -88,7 +88,7 @@ def req():
         if dice < 0:
             return "We can't roll a negative number of dice"
         if dice > 100:
-            return "%s is too many dice, we'll only roll 100 of them for you", dice
+            return "%s is too many dice, we'll only roll 100 of them for you" % dice
 
         rolls = roll(dice)
         hits,ones,sixes = count(rolls)
