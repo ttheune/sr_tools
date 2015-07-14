@@ -12,41 +12,44 @@ from flask import request
 import json, os, argparse
 app = Flask(__name__)
 
-# For number of dice requests sets a random number from 1-6
+# For number of dice returns an array of the counts
+# [1s, 2s, 3s, 4s, 5s, 6s]
 def roll(dice):
-  count = 0
-  rolls = {}
-  while count < dice:
-    count += 1
-    rolls[count] = randint(1,6)
-  return rolls
+    counts = [0] * 6
+    for i in range(dice):
+        singleRoll = randint(1, 6)
+        counts[singleRoll - 1] += 1
+    return counts
 
-# Count results, keep track of 1s 6s and number of dice that are above a 4
-def count(rolls):
-  (hits,ones,sixes) = (0,0,0)
-  for k in rolls.keys():
-    if rolls[k] > 4: hits += 1
-    if rolls[k] == 1: ones += 1
-    if rolls[k] == 6: sixes += 1
-  return (hits,ones,sixes)
+# For number of 6s returns an array of the counts
+# With exploding rolls for more 6s
+# [1s, 2s, 3s, 4s, 5s, 6s]
+def edge(sixes):
+    counts = [0] * 6
+    for i in range(sixes):
+        singleRoll = randint(1, 6)
+        counts[singleRoll - 1] += 1
+        if singleRoll == 6: 
+            explode = edge(1)
+            for j in range(0, 5):
+                counts[j] += explode[j]
+    return counts
 
-# Special exploding 6s for edge (check for 1s as small chance of causing glitch)
-def edge(hits,ones,sixes):
-  rolls = []
-  while sixes > 0:
-    r = roll(1).values()[0]
-    rolls.append(r)
-    if r == 1: ones += 1
-    if r > 4: hits += 1
-    if r < 6: sixes -= 1
-  return hits,rolls
-
-# Check to see if they glitched
-def glitch(hits,ones,dice):
-  if ones > dice/2:
-    if hits == 0: glitch = 'Critical Glitch'
-    else: glitch = 'Glitch'
-    return glitch
+# Determine the result of the roll
+def results(rolls, edges):
+    dice = 0
+    ones = rolls[0] + edges[0]
+    hits = rolls[4] + rolls[5] + edges[4] + edges[5]
+    for i in range(0, 5):
+        dice += rolls[i] + edges[i]
+    if ones > dice/2:
+        if hits == 0: 
+            result = 'Critical Glitch'
+        else:
+            result = 'Glitch'
+    else:
+        result = str(hits) + ' hits'
+    return result
 
 @app.route('/roll', methods=['POST', 'GET'])
 def req():
@@ -74,7 +77,7 @@ def req():
 
     if request.method == 'POST':
         if request.form['token'] != '<slack token>':
-          return 'Not Slack :('
+            return 'Not Slack :('
         user = request.form['user_name']
         payload['username'] = user
         req = request.form['text'].split()
@@ -93,24 +96,37 @@ def req():
             return "%s is too many dice, we'll only roll 100 of them for you" % dice
 
         rolls = roll(dice)
-        hits,ones,sixes = count(rolls)
         if roll_edge:
-          hits,edges = edge(hits,ones,sixes)
-          output = 'rolling with edge'
+            edges = edge(rolls[5])
+            output = 'rolling with edge'
         else:
-          edges = False
+            edges = [0] * 6
 
-        glitches = glitch(hits,ones,dice)
-        if glitches: result['glitch'] = glitches
-
+        result['outcome'] = results(rolls, edges)
+        
+        verbose = ''
         if show_roll:
-          result['rolls'] = sorted(rolls.values())
-          output = 'show rolling'
-          if roll_edge:
-            result['edge'] = sorted(edges)
-            output += ' with edge'
+            output = 'show rolling'
+            first = '```\n'
+            keys = '| pips | rolls |'
+            divider = '+------+-------+'
+            data = [''] * 6
+            for i in range(6):
+                data[i] = '|   ' + str(i+1) + '  | ' + (' ' * (5-len(str(rolls[i])))) + str(rolls[i]) + ' |'
+            last = '```\n'
+            if roll_edge:
+                keys += ' edges |'
+                divider += '-------+'
+                for i in range(6):
+                    data[i] = data[i] + ' ' + (' ' * (5-len(str(edges[i])))) + str(edges[i]) + ' |'
+            divider += '\n'
+            verbose = first + divider + keys + '\n' + divider
+            for i in range(6):
+                verbose += data[i] + '\n' + divider
+            verbose += last
+            result['verbose'] = verbose
 
-        result['hits'] = hits
+
         for k,v in result.iteritems():
             field = {"title":k,"value":str(v),"short":True}
             fields.append(field)
