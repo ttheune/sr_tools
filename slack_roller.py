@@ -63,7 +63,7 @@ def req():
     text = ''
     payload = {}
     payload['icon_emoji'] = ':game_die:'
-    payload['channel'] = '#shadowrun'
+    payload['channel'] = '#test'
     payload['attachments'] = []
     attachment = {"fallback":"SR dice roller for slack", "color":"danger", "mrkdwn_in": ["fields"]}
     fields = []
@@ -89,7 +89,6 @@ def req():
         if args.edge: roll_edge = True
         if args.show: show_roll = True
         if args.msg: result['message'] = ' '.join(args.msg)
-        if not args.invis: result['dice'] = dice
         if dice < 0:
             return "We can't roll a negative number of dice"
         if dice > 100:
@@ -98,33 +97,22 @@ def req():
         rolls = roll(dice)
         if roll_edge:
             edges = edge(rolls[5])
-            output = 'rolling with edge'
         else:
             edges = [0] * 6
 
-        result['outcome'] = results(rolls, edges)
+        result['roll'] = results(rolls, edges)
+        if not args.invis: result['roll'] += ' on ' + str(dice) + ' dice'
+        if sum(edges) > 0: result['roll'] += ' with ' + str(sum(edges)) + ' explodes'
         
         verbose = ''
         if show_roll:
-            output = 'show rolling'
-            first = '```\n'
-            keys = '| pips | rolls |'
-            divider = '+------+-------+'
-            data = [''] * 6
             for i in range(6):
-                data[i] = '|   ' + str(i+1) + '  | ' + (' ' * (5-len(str(rolls[i])))) + str(rolls[i]) + ' |'
-            last = '```\n'
+                verbose += ': %ss: %s :' % (i+1, rolls[i])
             if roll_edge:
-                keys += ' edges |'
-                divider += '-------+'
+                verbose += '\nexploded 6s:\n'
                 for i in range(6):
-                    data[i] = data[i] + ' ' + (' ' * (5-len(str(edges[i])))) + str(edges[i]) + ' |'
-            divider += '\n'
-            verbose = first + divider + keys + '\n' + divider
-            for i in range(6):
-                verbose += data[i] + '\n' + divider
-            verbose += last
-            result['verbose'] = verbose
+                    verbose += ': %ss: %s :' % (i+1, edges[i])
+            result['rolls'] = verbose
 
 
         for k,v in result.iteritems():
