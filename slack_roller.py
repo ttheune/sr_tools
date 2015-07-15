@@ -44,11 +44,11 @@ def results(rolls, edges):
         dice += rolls[i] + edges[i]
     if ones > dice/2:
         if hits == 0: 
-            result = 'Critical Glitch'
+            result = '*Critical Glitch*'
         else:
-            result = 'Glitch with ' + str(hits) + ' hits'
+            result = '*Glitch* with *' + str(hits) + '* hits'
     else:
-        result = str(hits) + ' hits'
+        result = '*' + str(hits) + '* hits'
     return result
 
 @app.route('/roll', methods=['POST', 'GET'])
@@ -100,18 +100,18 @@ def req():
         else:
             edges = [0] * 6
 
-        result['roll'] = results(rolls, edges)
-        if not args.invis: result['roll'] += ' on ' + str(dice) + ' dice'
-        if sum(edges) > 0: result['roll'] += ' with ' + str(sum(edges)) + ' explodes'
+        result['hits'] = results(rolls, edges)
+        if not args.invis: result['hits'] += ' on ' + str(dice) + ' dice'
+        if sum(edges) > 0: result['hits'] += ' with ' + str(sum(edges)) + ' explodes'
         
         verbose = ''
         if show_roll:
             for i in range(6):
-                verbose += ': %ss: %s :' % (i+1, rolls[i])
+                verbose += ': %ss: *%s* :' % (i+1, rolls[i])
             if roll_edge:
                 verbose += '\nexploded 6s:\n'
                 for i in range(6):
-                    verbose += ': %ss: %s :' % (i+1, edges[i])
+                    verbose += ': %ss: *%s* :' % (i+1, edges[i])
             result['rolls'] = verbose
 
 
