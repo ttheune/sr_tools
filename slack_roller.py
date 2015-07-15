@@ -63,7 +63,7 @@ def req():
     text = ''
     payload = {}
     payload['icon_emoji'] = ':game_die:'
-    payload['channel'] = '#test'
+    payload['channel'] = '#shadowrun'
     payload['attachments'] = []
     attachment = {"fallback":"SR dice roller for slack", "color":"danger", "mrkdwn_in": ["fields"]}
     fields = []
