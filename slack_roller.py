@@ -107,11 +107,11 @@ def req():
         verbose = ''
         if show_roll:
             for i in range(6):
-                verbose += ': %ss: *%s* :' % (i+1, rolls[i])
+                verbose += ': :die_%s:s: *%s* :' % (i+1, rolls[i])
             if roll_edge:
                 verbose += '\nexploded 6s:\n'
                 for i in range(6):
-                    verbose += ': %ss: *%s* :' % (i+1, edges[i])
+                    verbose += ': :die_%s:s: *%s* :' % (i+1, edges[i])
             result['rolls'] = verbose
 
 
