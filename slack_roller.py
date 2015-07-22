@@ -51,6 +51,15 @@ def results(rolls, edges):
         result = '*' + str(hits) + '* hits'
     return result
 
+def publish(fields,attachment,attachments,payload,url):
+    attachment['fields'] = fields
+    attachments.append(attachment)
+    payload['attachments'] = attachments
+    payload = json.dumps(payload)
+    command = "curl -X POST --data-urlencode 'payload=%s' %s" % (payload,url)
+    os.system(command)
+    print payload
+
 @app.route('/roll', methods=['POST', 'GET'])
 def req():
     # Set globals
@@ -60,7 +69,6 @@ def req():
     attachments = []
     output = 'rolling'
     url = '<slack webhook url>'
-    text = ''
     payload = {}
     payload['icon_emoji'] = ':game_die:'
     payload['channel'] = '#shadowrun'
@@ -99,16 +107,20 @@ def req():
         if init:
             if init < 0: return "Positive numbers only"
             if init > 20: return "You aren't super human, try again."
-            payload['init'] = init = sum(rolls)
-            if payload['init'] % 10 > 0: 
+            if dice > 5: return "You max out at +5 init dice, try again"
+            d = 1
+            total = 0
+            for score in rolls:
+                total += score * d
+                d += 1
+            init += total
+            if init % 10 > 0: 
                 passes = init/10+1
             else:
                 passes = init/10
-            payload['init'] += 'with %s passes' % passes
-            payload = json.dumps(payload)
-            command = "curl -X POST --data-urlencode 'payload=%s' %s" % (payload,url)
-            os.system(command)
-            print payload
+            field = {"title":"init","value":'%d with %d passes' % (init,passes),"short":True}
+            fields.append(field)
+            publish(fields,attachment,attachments,payload,url)
             return 'ok'
 
         if roll_edge:
@@ -134,14 +146,7 @@ def req():
         for k,v in result.iteritems():
             field = {"title":k,"value":str(v),"short":True}
             fields.append(field)
-            text += "%s: %s\n" % (k,v)
-        attachment['fields'] = fields
-        attachments.append(attachment)
-        payload['attachments'] = attachments
-        payload = json.dumps(payload)
-        command = "curl -X POST --data-urlencode 'payload=%s' %s" % (payload,url)
-        os.system(command)
-        print payload
+        publish(fields,attachment,attachments,payload,url)
         return 'ok'
     else:
         return 'No POST'
