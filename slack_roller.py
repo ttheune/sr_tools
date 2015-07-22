@@ -68,11 +68,13 @@ def req():
     attachment = {"fallback":"SR dice roller for slack", "color":"danger", "mrkdwn_in": ["fields"]}
     fields = []
 
+    # Capture arguments
     parser = argparse.ArgumentParser(description='ShadowRun Dice roller')
     parser.add_argument('dice', type=int, help='Number of dice to roll')
     parser.add_argument('-e', '--edge', action='store_true', help='If set, exploding 6s')
     parser.add_argument('-s', '--show', action='store_true', help='Show dice rolls')
     parser.add_argument('-i', '--invis', action='store_true', help='Hide die pool')
+    parser.add_argument('-n', '--init', type=int, default=False, help='Initiative rolls')
     parser.add_argument('msg', nargs='*')
 
     if request.method == 'POST':
@@ -84,17 +86,31 @@ def req():
         try:
             args = parser.parse_args(req)
         except:
-            return "Parse error.\nUsage: /roll [-s] [-e] dice [message]"
+            return "Parse error.\nUsage: /roll [-s] [-e] [-n] dice [message]"
         dice = args.dice
+        init = args.init
         if args.edge: roll_edge = True
         if args.show: show_roll = True
         if args.msg: result['message'] = ' '.join(args.msg)
-        if dice < 0:
-            return "We can't roll a negative number of dice"
-        if dice > 100:
-            return "%s is too many dice, we'll only roll 100 of them for you" % dice
+        if dice < 0: return "We can't roll a negative number of dice"
+        if dice > 100: return "%s is too many dice, we'll only roll 100 of them for you" % dice
 
         rolls = roll(dice)
+        if init:
+            if init < 0: return "Positive numbers only"
+            if init > 20: return "You aren't super human, try again."
+            payload['init'] = init = sum(rolls)
+            if payload['init'] % 10 > 0: 
+                passes = init/10+1
+            else:
+                passes = init/10
+            payload['init'] += 'with %s passes' % passes
+            payload = json.dumps(payload)
+            command = "curl -X POST --data-urlencode 'payload=%s' %s" % (payload,url)
+            os.system(command)
+            print payload
+            return 'ok'
+
         if roll_edge:
             edges = edge(rolls[5])
         else:
