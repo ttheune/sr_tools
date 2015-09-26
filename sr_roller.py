@@ -7,6 +7,7 @@ parser = argparse.ArgumentParser(description='ShadowRun Dice roller')
 parser.add_argument('dice', type=int, help='Number of dice to roll')
 parser.add_argument('-e', '--edge', action='store_true', help='If set, exploding 6s')
 parser.add_argument('-s', '--show', action='store_true', help='Show dice rolls')
+parser.add_argument('-q', '--quiet', action='store_true', help='Only print hits')
 
 # Set globals
 args = parser.parse_args()
@@ -68,4 +69,8 @@ if args.show:
     json['edge'] = sorted(edges)
 #json
 json['hits'] = hits
-print json
+
+if args.quiet:
+    print json['hits']
+else:
+    print json
