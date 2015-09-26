@@ -44,12 +44,21 @@ def results(rolls, edges):
         dice += rolls[i] + edges[i]
     if ones > dice/2:
         if hits == 0: 
-            result = 'Critical Glitch'
+            result = '*Critical Glitch*'
         else:
-            result = 'Glitch with ' + str(hits) + ' hits'
+            result = '*Glitch* with *' + str(hits) + '* hits'
     else:
-        result = str(hits) + ' hits'
+        result = '*' + str(hits) + '* hits'
     return result
+
+def publish(fields,attachment,attachments,payload,url):
+    attachment['fields'] = fields
+    attachments.append(attachment)
+    payload['attachments'] = attachments
+    payload = json.dumps(payload)
+    command = "curl -X POST --data-urlencode 'payload=%s' %s" % (payload,url)
+    os.system(command)
+    print payload
 
 @app.route('/roll', methods=['POST', 'GET'])
 def req():
@@ -60,7 +69,6 @@ def req():
     attachments = []
     output = 'rolling'
     url = '<slack webhook url>'
-    text = ''
     payload = {}
     payload['icon_emoji'] = ':game_die:'
     payload['channel'] = '#shadowrun'
@@ -68,11 +76,13 @@ def req():
     attachment = {"fallback":"SR dice roller for slack", "color":"danger", "mrkdwn_in": ["fields"]}
     fields = []
 
+    # Capture arguments
     parser = argparse.ArgumentParser(description='ShadowRun Dice roller')
     parser.add_argument('dice', type=int, help='Number of dice to roll')
     parser.add_argument('-e', '--edge', action='store_true', help='If set, exploding 6s')
     parser.add_argument('-s', '--show', action='store_true', help='Show dice rolls')
     parser.add_argument('-i', '--invis', action='store_true', help='Hide die pool')
+    parser.add_argument('-n', '--init', type=int, default=False, help='Initiative rolls')
     parser.add_argument('msg', nargs='*')
 
     if request.method == 'POST':
@@ -84,60 +94,59 @@ def req():
         try:
             args = parser.parse_args(req)
         except:
-            return "Parse error.\nUsage: /roll [-s] [-e] dice [message]"
+            return "Parse error.\nUsage: /roll [-s] [-e] [-n] dice [message]"
         dice = args.dice
+        init = args.init
         if args.edge: roll_edge = True
         if args.show: show_roll = True
         if args.msg: result['message'] = ' '.join(args.msg)
-        if not args.invis: result['dice'] = dice
-        if dice < 0:
-            return "We can't roll a negative number of dice"
-        if dice > 100:
-            return "%s is too many dice, we'll only roll 100 of them for you" % dice
+        if dice < 0: return "We can't roll a negative number of dice"
+        if dice > 100: return "%s is too many dice, we'll only roll 100 of them for you" % dice
 
         rolls = roll(dice)
+        if init:
+            if init < 0: return "Positive numbers only"
+            if init > 20: return "You aren't super human, try again."
+            if dice > 5: return "You max out at +5 init dice, try again"
+            d = 1
+            total = 0
+            for score in rolls:
+                total += score * d
+                d += 1
+            init += total
+            if init % 10 > 0: 
+                passes = init/10+1
+            else:
+                passes = init/10
+            field = {"title":"init","value":'%d with %d passes' % (init,passes),"short":True}
+            fields.append(field)
+            publish(fields,attachment,attachments,payload,url)
+            return 'ok'
+
         if roll_edge:
             edges = edge(rolls[5])
-            output = 'rolling with edge'
         else:
             edges = [0] * 6
 
-        result['outcome'] = results(rolls, edges)
+        result['hits'] = results(rolls, edges)
+        if not args.invis: result['hits'] += ' on ' + str(dice) + ' dice'
+        if sum(edges) > 0: result['hits'] += ' with ' + str(sum(edges)) + ' explodes'
         
         verbose = ''
         if show_roll:
-            output = 'show rolling'
-            first = '```\n'
-            keys = '| pips | rolls |'
-            divider = '+------+-------+'
-            data = [''] * 6
             for i in range(6):
-                data[i] = '|   ' + str(i+1) + '  | ' + (' ' * (5-len(str(rolls[i])))) + str(rolls[i]) + ' |'
-            last = '```\n'
+                verbose += ': :die_%s:s: *%s* :' % (i+1, rolls[i])
             if roll_edge:
-                keys += ' edges |'
-                divider += '-------+'
+                verbose += '\nexploded 6s:\n'
                 for i in range(6):
-                    data[i] = data[i] + ' ' + (' ' * (5-len(str(edges[i])))) + str(edges[i]) + ' |'
-            divider += '\n'
-            verbose = first + divider + keys + '\n' + divider
-            for i in range(6):
-                verbose += data[i] + '\n' + divider
-            verbose += last
-            result['verbose'] = verbose
+                    verbose += ': :die_%s:s: *%s* :' % (i+1, edges[i])
+            result['rolls'] = verbose
 
 
         for k,v in result.iteritems():
             field = {"title":k,"value":str(v),"short":True}
             fields.append(field)
-            text += "%s: %s\n" % (k,v)
-        attachment['fields'] = fields
-        attachments.append(attachment)
-        payload['attachments'] = attachments
-        payload = json.dumps(payload)
-        command = "curl -X POST --data-urlencode 'payload=%s' %s" % (payload,url)
-        os.system(command)
-        print payload
+        publish(fields,attachment,attachments,payload,url)
         return 'ok'
     else:
         return 'No POST'
