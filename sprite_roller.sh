@@ -16,3 +16,4 @@ then
 fi
 echo "Tasks: $NET_TM"
 echo "Damage: $NET_SOAK"
+
