@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document signature="Hero Lab Data">
+  <fileinfo>
+    <info_author>Travis Theune</info_author>
+    </fileinfo>
+  <thing id="quParagon0" name="Paragon 01" description="Zero-One is the beginning and the end, the alpha and the omega. While some call it the Deep Resonance, for lack of a better word, it is the consciousness of the virtual world that permeates everything, the embodiment of virtual harmony, the essence of the code. Followers of Zero-One tend to seek it for guidance and inspiration.
+  - Advantages: +2 die for compiling and registering sprites of any type
+  - Disadvantages: Zero-One is the perfection of the code and demands the same from his followers, or at least teaches them a harsh lesson if they fail. Zero-One technomancers must spend 2 points of Edge to negate a glitch or downgrade a critical glitch." compset="Quality" uniqueness="useronce">
+    <fieldval field="trtBPCost" value="5"/>
+    <tag group="QualityCat" tag="Positive" name="Positive Quality" abbrev="Positive Quality"/>
+    <eval phase="Effects" priority="10000"><![CDATA[
+      ~if we're not active, just get out now
+      doneif (activated = 0)
+
+      perform #dicepool[skaRegiste,+,2,""]]]>
+      <![CDATA[
+      ~if we're not active, just get out now
+      doneif (activated = 0)
+
+      perform #dicepool[skaCompile,+,2,""]]]></eval>
+    </thing>
+  </document>
