@@ -6,3 +6,5 @@ For slack_roller.py you will need to create the channel #shadowrun and replace t
 request.form['token']
 url
 as those are provided for you by slack.
+
+hero_lab contains .user files for some of the tm rules located in tm_house_rules.txt
