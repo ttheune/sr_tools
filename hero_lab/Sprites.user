@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document signature="Hero Lab Data">
+  <fileinfo>
+    <info_author>Travis Theune</info_author>
+    </fileinfo>
+  <thing id="cpAssult" name="Assult" description="The sprite is able to do two Resonances Spikes as a single action.  Roll Resonance + Level/2 [Attack] for each Spike.  As this is an innate power for the Sprite, it does not take any Fade from this action." compset="Power" uniqueness="unique">
+    <fieldval field="dpOppose" value="Willpower + Firewall"/>
+    <fieldval field="shortname" value="Assult"/>
+    <tag group="PowCat" tag="Emergent" name="Technocritter" abbrev="Technocritter"/>
+    <tag group="QualityCat" tag="Positive" name="Positive Quality" abbrev="Positive Quality"/>
+    <tag group="AttrDiceP" tag="attrRes" name="Resonance" abbrev="Resonance"/>
+    <tag group="PowDur" tag="Instant"/>
+    <tag group="PowAction" tag="Complex"/>
+    <tag group="AttrDiceP" tag="attrLevel"/>
+    <tag group="AttrLimit" tag="attrAttack" name="Attack" abbrev="Attack"/>
+    <tag group="Helper" tag="NoMission"/>
+    </thing>
+  <thing id="cpHardenin" name="Hardening" description="A sprite with this power can add it&apos;s own Firewall rating to a target (including itself).  This is an interrupt action similar to Full Matrix Defense.  (Note: this stacks with FMD)" compset="Power" uniqueness="unique">
+    <fieldval field="shortname" value="Hardening"/>
+    <tag group="PowCat" tag="Emergent" name="Technocritter" abbrev="Technocritter"/>
+    <tag group="QualityCat" tag="Positive" name="Positive Quality" abbrev="Positive Quality"/>
+    <tag group="Helper" tag="NoMission"/>
+    <tag group="PowAction" tag="Interrup10"/>
+    <tag group="PowDur" tag="Instant"/>
+    </thing>
+  <thing id="cpCastling" name="Castling" description="Named after the chess move, a sprite using this power with a Complex Action can redirect damage targeted at the technomancer to itself by temporarily mimicking the technomancer’s persona." compset="Power" uniqueness="unique">
+    <fieldval field="shortname" value="Castling"/>
+    <tag group="PowCat" tag="Emergent" name="Technocritter" abbrev="Technocritter"/>
+    <tag group="QualityCat" tag="Positive" name="Positive Quality" abbrev="Positive Quality"/>
+    <tag group="PowAction" tag="Complex"/>
+    <tag group="Helper" tag="NoMission"/>
+    <tag group="PowDur" tag="Sustained"/>
+    </thing>
+  <thing id="cpInfoSort" name="Info Sortilege" description="As the FAQ Complex Form." compset="Power" uniqueness="unique">
+    <fieldval field="shortname" value="Info Sortilege"/>
+    <tag group="PowCat" tag="Emergent" name="Technocritter" abbrev="Technocritter"/>
+    <tag group="QualityCat" tag="Positive" name="Positive Quality" abbrev="Positive Quality"/>
+    <tag group="PowAction" tag="Complex"/>
+    <tag group="AttrLimit" tag="attrDataPr" name="Data Processing" abbrev="Data Processing"/>
+    <tag group="Helper" tag="NoMission"/>
+    <tag group="PowDur" tag="Instant"/>
+    <tag group="SklDiceP" tag="skaCompute"/>
+    <tag group="AttrDiceP" tag="attrInt"/>
+    </thing>
+  <thing id="cpProbabil" name="Probability Distribution" description="A sprite with this power can change the probability distribution of a Matrix action by raising or lowering the amount of system resources allocated to perform it.  As a Complex Action the sprite rolls Level(x2)[Data Processing] vs. Willpower + Data Processing.  Either increase or decrease the dice pool of the targeted test by a number of dice equal net hits. As this test equires a Complex Action, the sprite must have delayed its action to use this power in order to affect another’s test. Also, this does not count or work as a Teamwork Test, it is simply adding or subtracting dice." compset="Power" uniqueness="unique">
+    <fieldval field="shortname" value="Probability Distribution"/>
+    <fieldval field="dpOppose" value="Willpower + Data Processing"/>
+    <tag group="PowCat" tag="Emergent" name="Technocritter" abbrev="Technocritter"/>
+    <tag group="QualityCat" tag="Positive" name="Positive Quality" abbrev="Positive Quality"/>
+    <tag group="PowAction" tag="Complex"/>
+    <tag group="Helper" tag="NoMission"/>
+    <tag group="PowDur" tag="Instant"/>
+    <tag group="AttrDiceP2" tag="attrLevel"/>
+    <tag group="AttrLimit" tag="attrDataPr" name="Data Processing" abbrev="Data Processing"/>
+    </thing>
+  <thing id="cpProficie" name="Proficiency" description="Tutor sprites possess know-/active-/lingua-softs that grant them an understanding of up to it&apos;s Level Technical, Vehicle, or Knowledge skills, chosen upon compiling. While it can teach these skills to any person, like an instructor or interactive tutorsoft, it can also use this skill to assist a person in AR or VR as some kind of virtual assistant, with a proficiency power similar to a medkit’s autodoc program or an autosoft for humans. When the sprite guides a user through a complex task (not necessarily only the technomancer) who does not possess the skill in question, the character may perform the skill test without any modifiers, counting half the sprite’s rating (round up) as the level of the skill. Since the sprite acts as a kind of smart tutorial and teacher, assisting someone in this manner is usually more time-consuming than the normal test would be, and therefore requires an Extended or Complex Action depending on the situation (gamemaster’s call)." compset="Power" uniqueness="unique">
+    <fieldval field="shortname" value="Proficiency"/>
+    <tag group="PowCat" tag="Emergent" name="Technocritter" abbrev="Technocritter"/>
+    <tag group="QualityCat" tag="Positive" name="Positive Quality" abbrev="Positive Quality"/>
+    <tag group="PowAction" tag="Complex"/>
+    <tag group="Helper" tag="NoMission"/>
+    <tag group="AttrLimit" tag="attrAttack" name="Attack" abbrev="Attack"/>
+    <tag group="PowDur" tag="Sustained"/>
+    </thing>
+  <thing id="cpNewTrace" name="Traceroute" description="The sprite may perform a Trace Icon matrix action against a spotted icon without any MARKs.  Note: As the sprite has no MARKs on the icon, this is not updated and must be re-run to get updated location information." compset="Power" uniqueness="unique">
+    <fieldval field="shortname" value="Traceroute"/>
+    <fieldval field="dpOppose" value="Intuition + Firewall"/>
+    <tag group="PowCat" tag="Emergent" name="Technocritter" abbrev="Technocritter"/>
+    <tag group="QualityCat" tag="Positive" name="Positive Quality" abbrev="Positive Quality"/>
+    <tag group="PowAction" tag="Complex"/>
+    <tag group="Helper" tag="NoMission"/>
+    <tag group="AttrLimit" tag="attrDataPr" name="Data Processing" abbrev="Data Processing"/>
+    <tag group="PowDur" tag="Instant"/>
+    <tag group="SklDiceP" tag="skaCompute"/>
+    <tag group="AttrDiceP" tag="attrInt"/>
+    </thing>
+  <thing id="rsCode" name="Code Sprite" description="Code sprites interact with the Matrix on the machine code level.  Their specialty is watching and changing the flow of data and energy resources." compset="RaceSprite" uniqueness="unique">
+    <fieldval field="racDiffAtk" value="-1"/>
+    <fieldval field="racDiffDat" value="4"/>
+    <fieldval field="racDiffFir" value="1"/>
+    <tag group="SpriteCat" tag="Normal" name="Normal" abbrev="Normal"/>
+    <bootstrap thing="skaHacking"></bootstrap>
+    <bootstrap thing="skaCompute"></bootstrap>
+    <bootstrap thing="skaElecWar"></bootstrap>
+    <bootstrap thing="cpInfoSort"></bootstrap>
+    <bootstrap thing="cpProbabil"></bootstrap>
+    </thing>
+  <thing id="sprCode" name="Code Sprite" description="Code sprites interact with the Matrix on the machine code level.  Their specialty is watching and changing the flow of data and energy resources." compset="Sprite" stacking="never">
+    <fieldval field="shortname" value="Code Sprite"/>
+    <tag group="CanCompile" tag="rsCode"/>
+    <tag group="SpriteCat" tag="Normal"/>
+    <minion id="rsCode" ownmode="no" livefield="minEnabled">
+      <tag group="MinionSet" tag="Compiled" name="Compiled Sprite" abbrev="Compiled Sprite"/>
+      <bootstrap thing="rsCode"></bootstrap>
+      </minion>
+    </thing>
+  <thing id="spComCode" name="Code Sprites" compset="Special" uniqueness="useronce">
+    <tag group="CanCompile" tag="rsCode" name="Code Sprite" abbrev="Code Sprite"/>
+    <tag group="SkillHelp" tag="SpecModCol" name="Also a Modifier Collector" abbrev="Also a Modifier Collector"/>
+    <tag group="SkillList" tag="skaCompile" name="Compiling" abbrev="Compiling"/>
+    <tag group="SpriteCat" tag="Normal" name="Normal" abbrev="Normal"/>
+    </thing>
+  <thing id="spDecCode" name="Code Sprites" compset="Special" uniqueness="useronce">
+    <tag group="CanCompile" tag="rsCode" name="Code Sprite" abbrev="Code Sprite"/>
+    <tag group="SkillHelp" tag="SpecModCol" name="Also a Modifier Collector" abbrev="Also a Modifier Collector"/>
+    <tag group="SkillList" tag="skaDecompi" name="Decompiling" abbrev="Decompiling"/>
+    <tag group="SpriteCat" tag="Normal" name="Normal" abbrev="Normal"/>
+    </thing>
+  <thing id="spRegCode" name="Courier Sprites" compset="Special" uniqueness="useronce">
+    <tag group="CanCompile" tag="rsCode" name="Code Sprite" abbrev="Code Sprite"/>
+    <tag group="SkillHelp" tag="SpecModCol" name="Also a Modifier Collector" abbrev="Also a Modifier Collector"/>
+    <tag group="SkillList" tag="skaRegiste" name="Registering" abbrev="Registering"/>
+    <tag group="SpriteCat" tag="Normal" name="Normal" abbrev="Normal"/>
+    </thing>
+  <thing id="rsPaladin" name="Paladin Sprite" description="Paladin sprites are protectors, adept in soaking Matrix damage and protecting the technomancer from hostile agents, personas, or AI." compset="RaceSprite" uniqueness="unique">
+    <fieldval field="racDiffDat" value="1"/>
+    <fieldval field="racDiffFir" value="4"/>
+    <tag group="SpriteCat" tag="Normal" name="Normal" abbrev="Normal"/>
+    <bootstrap thing="skaCompute"></bootstrap>
+    <bootstrap thing="cpCastling"></bootstrap>
+    <bootstrap thing="cpHardenin"></bootstrap>
+    <bootstrap thing="skaCyberco"></bootstrap>
+    </thing>
+  <thing id="sprPaladin" name="Paladin Sprite" description="Paladin sprites are protectors, adept in soaking Matrix damage and protecting the technomancer from hostile agents, personas, or AI." compset="Sprite" stacking="never">
+    <fieldval field="shortname" value="Code Sprite"/>
+    <tag group="SpriteCat" tag="Normal"/>
+    <tag group="CanCompile" tag="rsPaladin"/>
+    <minion id="rsPaladin" ownmode="no" livefield="minEnabled">
+      <tag group="MinionSet" tag="Compiled" name="Compiled Sprite" abbrev="Compiled Sprite"/>
+      <bootstrap thing="rsPaladin"></bootstrap>
+      </minion>
+    </thing>
+  <thing id="spComPala" name="Paladin Sprites" compset="Special" uniqueness="useronce">
+    <tag group="CanCompile" tag="rsPaladin" name="Paladin Sprite" abbrev="Paladin Sprite"/>
+    <tag group="SkillHelp" tag="SpecModCol" name="Also a Modifier Collector" abbrev="Also a Modifier Collector"/>
+    <tag group="SkillList" tag="skaCompile" name="Compiling" abbrev="Compiling"/>
+    <tag group="SpriteCat" tag="Normal" name="Normal" abbrev="Normal"/>
+    </thing>
+  <thing id="spDecPala" name="Paladin Sprites" compset="Special" uniqueness="useronce">
+    <tag group="CanCompile" tag="rsPaladin" name="Paladin Sprite" abbrev="Paladin Sprite"/>
+    <tag group="SkillHelp" tag="SpecModCol" name="Also a Modifier Collector" abbrev="Also a Modifier Collector"/>
+    <tag group="SkillList" tag="skaDecompi" name="Decompiling" abbrev="Decompiling"/>
+    <tag group="SpriteCat" tag="Normal" name="Normal" abbrev="Normal"/>
+    </thing>
+  <thing id="spRegPala" name="Paladin Sprites" compset="Special" uniqueness="useronce">
+    <tag group="CanCompile" tag="rsPaladin" name="Paladin Sprite" abbrev="Paladin Sprite"/>
+    <tag group="SkillHelp" tag="SpecModCol" name="Also a Modifier Collector" abbrev="Also a Modifier Collector"/>
+    <tag group="SkillList" tag="skaRegiste" name="Registering" abbrev="Registering"/>
+    <tag group="SpriteCat" tag="Normal" name="Normal" abbrev="Normal"/>
+    </thing>
+  <thing id="rsSleuth" name="Sleuth Sprite" description="Sleuth sprites are excellent trackers, rumored to be able to  nd anyone in the Matrix by following even the tiniest traces of datatrails." compset="RaceSprite" uniqueness="unique">
+    <fieldval field="racDiffDat" value="4"/>
+    <fieldval field="racDiffFir" value="-2"/>
+    <fieldval field="racDiffSlz" value="3"/>
+    <tag group="SpriteCat" tag="Normal" name="Normal" abbrev="Normal"/>
+    <bootstrap thing="skaCompute"></bootstrap>
+    <bootstrap thing="cpCookie"></bootstrap>
+    <bootstrap thing="cpNewTrace"></bootstrap>
+    <bootstrap thing="skaHacking"></bootstrap>
+    </thing>
+  <thing id="sprSleuth" name="Sleuth Sprite" description="Sleuth sprites are excellent trackers, rumored to be able to  nd anyone in the Matrix by following even the tiniest traces of datatrails." compset="Sprite" stacking="never">
+    <fieldval field="shortname" value="Sleuth Sprite"/>
+    <tag group="SpriteCat" tag="Normal"/>
+    <tag group="CanCompile" tag="rsSleuth"/>
+    <minion id="rsSleuth" ownmode="no" livefield="minEnabled">
+      <tag group="MinionSet" tag="Compiled" name="Compiled Sprite" abbrev="Compiled Sprite"/>
+      <bootstrap thing="rsSleuth"></bootstrap>
+      </minion>
+    </thing>
+  <thing id="spComSleu" name="Sleuth Sprites" compset="Special" uniqueness="useronce">
+    <tag group="CanCompile" tag="rsSleuth" name="Sleuth Sprite" abbrev="Sleuth Sprite"/>
+    <tag group="SkillHelp" tag="SpecModCol" name="Also a Modifier Collector" abbrev="Also a Modifier Collector"/>
+    <tag group="SkillList" tag="skaCompile" name="Compiling" abbrev="Compiling"/>
+    <tag group="SpriteCat" tag="Normal" name="Normal" abbrev="Normal"/>
+    </thing>
+  <thing id="spDecSleu" name="Sleuth Sprites" compset="Special" uniqueness="useronce">
+    <tag group="CanCompile" tag="rsSleuth" name="Sleuth Sprite" abbrev="Sleuth Sprite"/>
+    <tag group="SkillHelp" tag="SpecModCol" name="Also a Modifier Collector" abbrev="Also a Modifier Collector"/>
+    <tag group="SkillList" tag="skaDecompi" name="Decompiling" abbrev="Decompiling"/>
+    <tag group="SpriteCat" tag="Normal" name="Normal" abbrev="Normal"/>
+    </thing>
+  <thing id="spRegSleu" name="Sleuth Sprites" compset="Special" uniqueness="useronce">
+    <tag group="CanCompile" tag="rsSleuth" name="Sleuth Sprite" abbrev="Sleuth Sprite"/>
+    <tag group="SkillHelp" tag="SpecModCol" name="Also a Modifier Collector" abbrev="Also a Modifier Collector"/>
+    <tag group="SkillList" tag="skaRegiste" name="Registering" abbrev="Registering"/>
+    <tag group="SpriteCat" tag="Normal" name="Normal" abbrev="Normal"/>
+    </thing>
+  <thing id="rsTank" name="Tank Sprite" description="Sometimes called Boss sprites, Tank sprites are feared opponents in Matrix combat, known to fight hostile programs or personas with brute force and code-penetrating attack programs." compset="RaceSprite" uniqueness="unique">
+    <fieldval field="racDiffAtk" value="4"/>
+    <fieldval field="racDiffSlz" value="-2"/>
+    <fieldval field="racDiffDat" value="1"/>
+    <fieldval field="racDiffFir" value="-1"/>
+    <tag group="SpriteCat" tag="Normal" name="Normal" abbrev="Normal"/>
+    <bootstrap thing="skaCompute"></bootstrap>
+    <bootstrap thing="cpAssult"></bootstrap>
+    <bootstrap thing="skaCyberco"></bootstrap>
+    </thing>
+  <thing id="sprTank" name="Tank Sprite" description="Sometimes called Boss sprites, Tank sprites are feared op- ponents in Matrix combat, known to  ght hostile programs or personas with brute force and code-penetrating attack programs." compset="Sprite" stacking="never">
+    <fieldval field="shortname" value="Tank Sprite"/>
+    <tag group="SpriteCat" tag="Normal"/>
+    <tag group="CanCompile" tag="rsTank"/>
+    <minion id="rsTank" ownmode="no" livefield="minEnabled">
+      <tag group="MinionSet" tag="Compiled" name="Compiled Sprite" abbrev="Compiled Sprite"/>
+      <bootstrap thing="rsTank"></bootstrap>
+      </minion>
+    </thing>
+  <thing id="spComTank" name="Tank Sprites" compset="Special" uniqueness="useronce">
+    <tag group="CanCompile" tag="rsTank" name="Tank Sprite" abbrev="Tank Sprite"/>
+    <tag group="SkillHelp" tag="SpecModCol" name="Also a Modifier Collector" abbrev="Also a Modifier Collector"/>
+    <tag group="SkillList" tag="skaCompile" name="Compiling" abbrev="Compiling"/>
+    <tag group="SpriteCat" tag="Normal" name="Normal" abbrev="Normal"/>
+    </thing>
+  <thing id="spDecTank" name="Tank Sprites" compset="Special" uniqueness="useronce">
+    <tag group="CanCompile" tag="rsTank" name="Tank Sprite" abbrev="Tank Sprite"/>
+    <tag group="SkillHelp" tag="SpecModCol" name="Also a Modifier Collector" abbrev="Also a Modifier Collector"/>
+    <tag group="SkillList" tag="skaDecompi" name="Decompiling" abbrev="Decompiling"/>
+    <tag group="SpriteCat" tag="Normal" name="Normal" abbrev="Normal"/>
+    </thing>
+  <thing id="spRegTank" name="Tank Sprites" compset="Special" uniqueness="useronce">
+    <tag group="CanCompile" tag="rsTank" name="Tank Sprite" abbrev="Tank Sprite"/>
+    <tag group="SkillHelp" tag="SpecModCol" name="Also a Modifier Collector" abbrev="Also a Modifier Collector"/>
+    <tag group="SkillList" tag="skaRegiste" name="Registering" abbrev="Registering"/>
+    <tag group="SpriteCat" tag="Normal" name="Normal" abbrev="Normal"/>
+    </thing>
+  <thing id="rsTutor" name="Tutor Sprite" description="Tutor sprites are living emanations of virtual instructor and helper programs that possess a native understanding of a particular technical, vehicle, or knowledge skill. They are able to help someone to use, repair, or understand a particular device or program." compset="RaceSprite" uniqueness="unique">
+    <fieldval field="racDiffSlz" value="1"/>
+    <fieldval field="racDiffDat" value="4"/>
+    <fieldval field="racDiffFir" value="-1"/>
+    <tag group="SpriteCat" tag="Normal" name="Normal" abbrev="Normal"/>
+    <bootstrap thing="skaCompute"></bootstrap>
+    <bootstrap thing="cpProficie"></bootstrap>
+    <bootstrap thing="cpStabilit"></bootstrap>
+    <bootstrap thing="skaInstruc"></bootstrap>
+    <bootstrap thing="skaSoftwar"></bootstrap>
+    </thing>
+    <thing id="sprTutor" name="Tutor Sprite" description="Tutor sprites are living emanations of virtual instructor and helper programs that possess a native understanding of a particular technical, vehicle, or knowledge skill. They are able to help someone to use, repair, or understand a particular device or program." compset="Sprite" stacking="never">
+      <fieldval field="shortname" value="Tutor Sprite"/>
+      <tag group="SpriteCat" tag="Normal"/>
+      <tag group="CanCompile" tag="rsTutor" name="Tutor Sprite" abbrev="Tutor Sprite"/>
+      <minion id="rsTutor" ownmode="no" livefield="minEnabled">
+        <tag group="MinionSet" tag="Compiled" name="Compiled Sprite" abbrev="Compiled Sprite"/>
+        <bootstrap thing="rsTutor"></bootstrap>
+        </minion>
+      </thing>
+  <thing id="spComTuto" name="Tutor Sprites" compset="Special" uniqueness="useronce">
+    <tag group="CanCompile" tag="rsTutor" name="Tutor Sprite" abbrev="Tutor Sprite"/>
+    <tag group="SkillHelp" tag="SpecModCol" name="Also a Modifier Collector" abbrev="Also a Modifier Collector"/>
+    <tag group="SkillList" tag="skaCompile" name="Compiling" abbrev="Compiling"/>
+    <tag group="SpriteCat" tag="Normal" name="Normal" abbrev="Normal"/>
+    </thing>
+  <thing id="spDecTuto" name="Tutor Sprites" compset="Special" uniqueness="useronce">
+    <tag group="CanCompile" tag="rsTutor" name="Tutor Sprite" abbrev="Tutor Sprite"/>
+    <tag group="SkillHelp" tag="SpecModCol" name="Also a Modifier Collector" abbrev="Also a Modifier Collector"/>
+    <tag group="SkillList" tag="skaDecompi" name="Decompiling" abbrev="Decompiling"/>
+    <tag group="SpriteCat" tag="Normal" name="Normal" abbrev="Normal"/>
+    </thing>
+  <thing id="spRegTuto" name="Tutor Sprites" compset="Special" uniqueness="useronce">
+    <tag group="CanCompile" tag="rsTutor" name="Tutor Sprite" abbrev="Tutor Sprite"/>
+    <tag group="SkillHelp" tag="SpecModCol" name="Also a Modifier Collector" abbrev="Also a Modifier Collector"/>
+    <tag group="SkillList" tag="skaRegiste" name="Registering" abbrev="Registering"/>
+    <tag group="SpriteCat" tag="Normal" name="Normal" abbrev="Normal"/>
+    </thing>
+    </document>

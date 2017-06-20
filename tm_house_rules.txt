@@ -1,0 +1,272 @@
+FORMS:
+  - Elevate
+    Target: Device
+    Duration: P
+    Fade Value: L + 2
+  Target resists with Willpower + Firewall.  You put a number of MARKs equal to your net hits on target device.
+
+  - Resonance Reverb
+    Target: Self
+    Duration: I
+    Fade Value: L - 1
+  You can spot devices running silently with a Sleaze up to Level within 100m of you for a number of minutes equal to your hits.
+
+  - Bitflip
+    Target: Device
+    Duration: S
+    Fade Value: L + 1
+  Target resists with Willpower + Firewall. If you get any net hits you can swap two Matrix Attributes of target device. These attributes cannot be swapped by reconfiguring the device or the Configurator program for as long as you sustain this complex form or the device reboots.
+
+  - Lag Grenade
+    Target: Device
+    Duration: I
+    Fade Value: L + 2
+  Target resists with Intuition + Data Processing. For every net hit the target loses 5 from their Initiative Score.
+
+  - Slide to Unlock
+    Target: Device (i.e. Maglock)
+    Duration: P
+    Fade Value: L - 1
+  Simple as that: On a Net Hit hit, you can unlock (or lock) any Maglock, which resist with its Rating*2. Spares you at least one Action - which might buy your team just the time to get out of the room before the Nerve Gas sets in. :)
+
+  - Switcharoo
+    Target: Persona
+    Duration: I
+    Fade Value: L + 2
+  On a net hit, you switch places with any Persona in the Matrix you can see in the Matrix or have a Mark on. The Target resists with Willpower+Firewall.
+  "Switching Places" includes the following effects:
+  You and your targets switch the Grids you are on, you switch your own and other Matrix user´s "fields of view" (meaning f.i. that someone who spotted you might lose you and sees the target instead and vice-versa. However, you might stay spotted if you´ve already been marked) and, last but not least, you switch positions between inside or outside of any host(s). Note that this might be (ab)used as a clever way to infiltrate a host - which is intentional  8)
+
+  - Filterbubble
+    Target: Person
+    Duration: P
+    Fade Value: L - 1
+  Make a Software+Resonance VS Data Processing+Intuition-Test. If you gain any net hits, you enclose your target inside a "filterbubble", preventing the target from perceiving certain things inside the Matrix or finding them with a Matrix search. The filtered content may consist of one of the following things:
+    - A specific Host or Icon: In this case, the target can only be perceived by performing a deliberate Matrix Perception test with a threshold of [Level] against it, similar to running silent. If the filtered icon is already running silent, add the Net Hits to the target´s defense pool against Matrix perception.
+    - Spam: In this case, reduce the Noise (and other potentially negative modifiers) from Spam Zones by the acquired Net Hits.
+    - Information: Closest to the contemporary meaning of the word "filterbubble", this affects all information regarding a specific topic that would normally come up when conducting a Matrix search. In this case, the Net Hits to the Threshold for the Matrix search test.
+  Note: that the target is normally unaware of the filterbubble, unless there´s a good reason to mistrust the perceived information.
+
+  - Prestidigitization
+    Target: Device
+    Duration: I
+    Fade Value: L - 2
+  Target device resists with Willpower + Firewall. If you win the Opposed Test the device and any slaved devices do not benefit from any wireless on effects.
+
+  - Data Buffer
+    Target: Device
+    Duration: S
+    Fade Value: L - 3
+  Target device gains additional dice equal to your hits to resist Matrix Damage and, if applicable, Biofeedback Damage.
+
+  - "AMP" (Augment Matrix Performance)
+    Target: Device
+    Duration: S
+    Fade Value: L + 1
+  Improving the preexisting software on a device, this complex form adds a number of dice equal to your hits when using it. A device can only benefit from this if it is also benefiting from a wireless on effect of it. This only adds to rolls in which the wireless on effect is being used. If it is sustained for a number of hours equal to the Device's Rating, it suffers damage net hit Matrix Damage.
+
+  - Data Surge
+    Target: Self
+    Duration: I
+    Fade Value: L + 2
+  All (wireless on, natch) devices within [Level] meters of you must win an Opposed Test with Willpower + Firewall or reboot. Only devices with a Device Rating less than or equal to the Level are affected. Devices that are slaved can use the Master's defense pool, however the device's rating still determines if it is affected. This has no effect in a host.
+
+  - AVOID (Alternate Verification Of IDentity)
+    Target: Device
+    Duration: I
+    Fade Value: L
+  In the wave of a hand, you pull together Resonance like quantum-code to forge a temporary Fake SIN. Your hits determine the rating of the Fake SIN. This Complex Form only works in one instance of a SIN check. Each use of this generates a "new" SIN, although you are capable of making it applicable in regards to your metatype, sex, height, etc. If the SIN check fails, the device alerts the owner of foul play (such as "this is fake", "I've been hacked", etc). If the device beats the threshold with a number of hits equal to your hits, the device alerts its owner that Resonance is being used. NOTE: Since you are generating a "new" SIN each time, if the same person runs two checks on you for some reason, there is a chance they will realize that there is an inconsistency.  GM should situationally determine how best to approach this.
+
+  - Cacheless
+    Target: Device
+    Duration: I
+    Fade Value: L - 2
+  This Complex Form dumps all excess running programs and forces a device to function solely on its operating system. Make a Threading test vs. Willpower + Firewall. If you win target device unloads all running programs and cannot load any for net hit Combat Turns. When used against an AI they make an additional test with Willpower + Firewall + Depth against the same Threading test (you do not re-roll). If they lose they are disrupted, otherwise they continue running. If they are disrupted they lose Essence points equal to your net hits.
+
+  - Whitespace
+    Target: Self
+    Duration: S
+    Fade Value: L
+  By altering your Living Persona, you can evade detection from wireless-on Sensors. Make a Threading test and note your hits. Sensors within [Level] x 2 meters of you must make a Device Rating x 2 Opposed test against your hits. If you win you are invisible, soundless, heatless, etc to Sensors. Any recordings will not have you present, however your Resonance Signature will be. This also will affect cybereyes, cyberears, ultrasound, etc for as long as they are wireless on or you either stop sustaining this or move out of range.
+
+
+SPRITES:
+  - Code
+    A: L-1 S: L D: L+4 F: L+1 I (Lx2)+4
+    Skills: Computer, Hacking, Electronic Warfare
+    Powers: Info Sortilege, Probability Distribution
+  - Paladin
+    A: L S: L D: L+1 F: L+4 I: (Lx2)+1
+    Skills: Computer, Cybercombat
+    Powers: Castling, Hardening
+  - Sleuth
+    A: L S: L+3 D: L+4 F: L-2 I: (Lx2)+4
+    Skills: Computer, Hacking
+    Powers: Cookies, Traceroute
+  - Tank
+    A: L+4 S: L-2 D: L+1 F: L-1 I: (Lx2)+1
+    Skills: Computer, Cybercombat
+    Powers: Assault
+  - Tutor
+    A: L S: L+1 D: L+4 F: L-1 I: (Lx2)+4
+    Skills: Computer, Instruction, Software
+    Powers: Proficiency, Stability
+  Powers:
+  - Assault
+    The sprite is able to do two Resonances Spikes as a single action.  Roll Resonance + Level/2 [Level] for each Spike.  As this is an innate power for the Sprite, it does not take any Fade from this action.
+  - Castling
+    Named after the chess move, a sprite using this power with a Complex Action can redirect damage targeted at the technomancer to itself by temporarily mimicking the technomancer’s persona.
+  - Hardening
+    A sprite with this power can add it's own Firewall rating to a target (including itself).  This is an interrupt action similar to Full Matrix Defense.  (Note: this stacks with FMD)
+  - Info Sortilege
+    As the FAQ Complex Form
+  - Probability Distribution
+    A sprite with this power can change the probability distribution of a Matrix action by raising or lowering the amount of system resources allocated to perform it.  As a Complex Action the sprite rolls Level(x2)[Data Processing] vs. Willpower + Data Processing.  Either increase or decrease the dice pool of the targeted test by a number of dice equal net hits. As this test equires a Complex Action, the sprite must have delayed its action to use this power in order to affect another’s test. Also, this does not count or work as a Teamwork Test, it is simply adding or subtracting dice.
+  - Proficiency
+    Tutor sprites possess know-/active-/lingua-softs that grant them an understanding of up to it's Level Technical, Vehicle, or Knowledge skills, chosen upon compiling. While it can teach these skills to any person, like an instructor or interactive tutorsoft, it can also use this skill to assist a person in AR or VR as some kind of virtual assistant, with a proficiency power similar to a medkit’s autodoc program or an autosoft for humans. When the sprite guides a user through a complex task (not necessarily only the technomancer) who does not possess the skill in question, the character may perform the skill test without any modifiers, counting half the sprite’s rating (round up) as the level of the skill. Since the sprite acts as a kind of smart tutorial and teacher, assisting someone in this manner is usually more time-consuming than the normal test would be, and therefore requires an Extended or Complex Action depending on the situation (gamemaster’s call).
+  - Traceroute
+    The sprite may perform a Trace Icon matrix action against a spotted icon without any MARKs.  Note: As the sprite has no MARKs on the icon, this is not updated and must be re-run to get updated location information.
+
+ECHOES:
+
+Mutable Persona
+  You gain a number of attribute points equal to your submersion grade to add to your ASDF array. These points can be reconfigured like a cyberdeck.
+
+Resonance Feedback Cycle
+  Prerequisite: Submersion Grade 3
+  You Augment +(Submersion Grade/3(rounded down))d6 Initiative Dice.
+
+Resonance Pathway Enhancement [Mental Attribute]
+  Prerequisite: Submersion Grade 3
+  You Augment +(Submersion Grade/3(rounded down)) to [Mental Attribute]
+
+Man-Machine Resonance Interface
+  This provides the same effects as a control rig (p. 452, SR5), without the free datajack and datacable.  The effective rating of the control rig is your Submersion Grade/2 (max 3).
+
+Quiet
+  Reduce the Noise of the area by your Submersion Grade for a radius of 10 meters per point of Resonance attribute.
+
+Resonance Scream
+  Increase the Noise of the area by your Submersion Grade for a radius of 10 meters per point of Resonance attribute.
+
+Resonance Program
+  You are able emulate certain Cyberprograms.  Each time you Submerge you may learn a Cyberprogram.  (Ie: you know your Sumbersion Grade number of Programs)
+
+Biowires
+  Prerequisite: Skinlink
+  The Resonance flows through your nervous system emulating the effects of a Skillwires.  You can access know-/lingua-/active-softs via your Skinlink as if you had a Skilljack.  Your biowires function as if the Skillwires/jack were a rating equal to your Submersion Grade.
+
+QUALITIES
+
+SmartLink (5 Karma)
+  Prerequisite: Skinlink
+  While holding a SmartLink enabled firearm, a Technomancer with the Skinlink echo can access the SmartLink as if they had a SmartLink cyberware installed.
+
+STREAMS:
+
+Cyberadepts
+  Fading: Willpower + Resonance
+  Sprites: Courier, Crack, Data, Fault, and Machine
+Dronomancers
+  Fading: Intuition + Resonance
+  Sprites: Crack, Data, Fault, Machine, and Tutor
+E-scapists
+  Fading: Willpower + Resonance
+  Sprites: Courier, Crack, Data, Fault, and Tank
+Info Savants
+  Fading: Intuition + Resonance
+  Sprites: Code, Courier, Data, Machine, and Paladin
+Networkers
+  Fading: Charisma + Resonance
+  Sprites: Code, Courier, Crack, Data, and Sleuth
+Singularitans
+  Fading: Logic + Resonance
+  Sprites: Courier, Crack, Data, Tank, and Tutor
+Sourcerers
+  Fading: Logic + Resonance
+  Sprites: Code, Courier, Crack, Data, and Machine
+Technoshamans
+  Fading: Charisma + Resonance
+  Sprites: Crack, Data, Machine, Paladin, and Sleuth
+
+WIDGETS:
+
+Widgets work for Resonance powers the same way that Reagents work for Magic.
+
+Gathering Widgets: (Resonance + Software)[Mental](1h) (1 widget/2hits based on Stream)
+
+PARAGONS:
+
+01
+  Zero-One is the beginning and the end, the alpha and the omega. While some call it the Deep Resonance, for lack of a better word, it is the consciousness of the virtual world that permeates everything, the embodiment of virtual harmony, the essence of the code. Followers of Zero-One tend to seek it for guidance and inspiration.
+  - Advantages: +2 die for compiling and registering sprites of any type
+  - Disadvantages: Zero-One is the perfection of the code and demands the same from his followers, or at least teaches them a harsh lesson if they fail. Zero-One technomancers must spend 2 points of Edge to negate a glitch or downgrade a critical glitch.
+
+Alias
+  Alias is the spy of the Matrix, the embodiment of the changing hacker persona or anonymous user. Alias is all about switching or exchanging access IDs, codes, and places, both in the Matrix and real life. Alias has no face. He becomes indistinguishable from other Matrix users, fooling and impersonating other users by stealing their codes.
+  - Advantages: +2 dice to Spoof Tests, +1 die for Crack or Sleuth sprites (player must choose one)
+  - Disadvantages: Alias technomancers must maintain at least 3 identities/lifestyles at all times and may not keep an identity for longer than 4 months.  This probably means moving, but if the technomancer can arrange for the old identity to transfer ownership of the lifestyle to new identity they need not move.
+
+Archivist
+ The Archivist is the embodiment of amassed information. As the virtual chronicler, she hoards and sorts the history of man and the world’s intellectual wealth and knowledge within the innumerable archives in the Matrix, never losing track of how information interconnects and cross-references.
+ - Advantages: +2 dice for all Matrix Search Tests, +1 die for Code or Data sprites (player must choose one)
+ - Disadvantages: Technomancers following the Archivist cannot willingly destroy or corrupt data.  The technomancer must succeed at a Willpower + Logic (3) Test to purposely delete or corrupt data (or order a sprite to do so).
+
+Architect
+ The Architect is the personification of ordered topography, the creator of nodes and meshworks. Each node has a well-chosen architecture of files, slaves, and subscribed devices that ensure functionality and sorting of data. Actions must be precisely timed and neatly controlled to run smoothly. Virtual chaos is anathema.
+ - Advantages: +2 die to Edit Tests(Resonance or Matrix), +1 die for Data or Machine sprites (player must choose one)
+ - Disadvantages: -1 die to Matrix Soak tests
+
+Babel
+  Babel is the embodiment of universal language, whether it be spoken, visual (in the form of glyphs and symbols), or programmed. He is an instant omnitranslator, the archetype of an interactive program or interface. Technomancers following Babel are open-minded individuals who like to chat, blog, and communicate.
+  - Advantages: +1 to online Etiquette and Language Tests, +1 die for Courier or Tutor sprites (player must choose one)
+  - Disadvantages: Secrecy is the bane of communication, so Babel technomancers must make a Willpower + Logic (3) Test to en- crypt anything.
+
+The Black Hat
+  The Black Hat is the personified essence of the hacker, who works to exploit computer systems out of a certain self-serving motivation. While some are just data thieves who steal and sell data for personal gain and monetary interest, there are also those who intrude on nodes just out of fun, curiosity, or personal fame among the community of hackers.
+  - Advantages: +2 dice to Hack on the Fly or Brute Force Tests (player must choose one), +1 die for Crack or Fault Sprites (player must choose one)
+  - Disadvantages: Black Hat technomancers have an unrelenting compulsion to grab protected data, crack it, and see what’s in it. Whenever the character encounters protected files (see the Edit File action, p. 239, SR5), he must succeed in a Composure (3) Test or attempt to Crack the File. The character is allowed to attempt to check if the file has a Data Bomb on it, and if so, to disarm it. However, the character cannot move on with his life until the file has been cracked and downloaded (he can read it later). Even if the character is in the middle of a host with IC trying to kill him and enemy hackers slinging at him, he will stop what he is doing and attempt to get that file.
+
+Cryptome
+  Cryptome is the keeper of secrets. He is the preserver of hidden data and a master of encryption, protecting paydata stashed away in vaults, riddled with massive layers of protection. Knowing all confidential and classified information, he is the embodiment of cryptograms and cipher keys used to encrypt and decrypt data.
+  - Advantages: +2 dice to all Crack and Edit File Tests, +1 die for Courier or Data sprites (player must choose one)
+  - Disadvantages: Technomancers who follow Cryptome don’t surrender secrets easily and never to unreliable sources. The technomancer must make a Willpower + Logic (3) Test to share a secret or important information with someone he does not completely trust ... and such trust is rare.
+
+Daedalus
+  Named after the famous Greek inventor, Daedalus is the embodiment of the machine tinkerer, the master of devices and (sometimes dangerous) technical inventions. As Daedalus is the personification of the constructor and innovator, technomancers with a love of robotic machines, drones, vehicles, and electronic devices feel especially drawn to this paragon.
+  - Advantages: +2 dice to Hardware Tests, +1 die for Machine or Fault sprites (player must choose one)
+  - Disadvantages: Technomancers who follow Daedalus tend to interact with the machines on which they are working in an even more subconscious manner than usual. As a result, modifications they make are geared towards someone with their talents and worldview, rather than something that is intuitive to a mundane user or even a non-Daedalus technomancer. Devices built or modified by such technomancers have a more arcane user interface, imposing a –2 modifier on anyone who wants to legitimately use it.
+
+Delphi
+  Delphi is the oracle, the haruspex of the Matrix and incarnation of inductive logic. She reads the code, interacting with the  ow and predicting the fate of the world, of corporations, and even of individuals by observing the currents in the data streams, how it forms turbulence and vortices. Since she is a source of data, she is considered to be a wise counselor.
+  - Advantages: +2 dice for Matrix Perception Tests (this stacks with the natural technomancer bonus), +1 die for Code or Tutor Sprites (player must choose one)
+  - Disadvantages: Delphi technomancers don’t adapt easily to unexpected situations. They must make a Willpower + Logic (3) Test to make any quick decisions in situations they have not planned for.
+
+Echelon
+  Echelon is the incarnation of surveillance, the embodiment of the faceless Big Brother. Echelon monitors everything, all the time, sniffing transmissions, eavesdropping through listening posts and surveillance devices connected to the Matrix. It gathers information on people, objects, or processes, and tracks their activity and associations.
+  - Advantages: +1 die to Trace Icon and Spoof Tests, +1 die for Crack or Sleuth sprites (player must choose one)
+  - Disadvantages: Echelon followers obsessively work to gather information about what is going on around them. When caught off-guard, without having information they need, or when running blind into a situation, they suffer a –1 dice pool modi er on all actions as long as the situation remains.
+
+Flow
+  The Flow represents the constant stream of data through computer networks. Like a river, data constantly moves from one point to another in the Matrix, forming tides, pools of information, or even virtual oceans. Flow is constantly moving, traveling from source to destination. Technomancers who follow the Flow understand the nature of the data stream more deeply and are able to see the currents of the Matrix more clearly.
+  - Advantages: +2 dice for Threading Tests, +1 die for Code or Data Sprites (player must choose one)
+  - Disadvantages: –1 die to Cybercombat Attack Tests
+
+Idoru
+  The Idoru is the archetypical virtual celebrity, the public face of the Matrix. Looks, propaganda, mass marketing, the control of public relation machineries, and advertisements are her favorites. She is the manipulator of information, influencing the masses via small biases made to news and data.
+  - Advantages: +2 dice on Con Tests, +1 die for Crack or Sleuth sprites (player must choose one)
+  - Disadvantages: Idoru followers must succeed in a Willpower + Logic (3) Test to avoid manipulating data in their favor when the opportunity affords.
+
+CO-PROCESSORS:
+
+Despite their great powers, technomancers are still limited by one thing: the fact that the human brain can only do so much. To resolve this, enterprising technomancers have found a method of increasing their raw computing power by offloading resonance functions to matrix-enabled devices.
+There are five types of co-processors (echo, resonance, sustaining, tasking, and threading).  To create a co-processor the techmancer builds a device and prepares it by using an amount of computer components and widgets of equivalent value to 3000 * the finished focus' karma cost. This process is a Hardware + Logic [Resonance] (R*2, 1 hour) extended test.  Once this test is successful, the necessary resonance channels have been created.  To complete the process, the technomancer must spend karma to seal the device as follows: echo processors are Level * 3; resonance processors are Level * 6; sustaining, tasking, and threading processors are Level * 2.  The sum of the Level of all of the processors in the device may not exceed its device rating.
+
+The functions of the four types of co-processors are as follows:
+  * An echo processor boosts a specific echo which the technomancer has, and increases the user's effective submersion grade by it's level for purposes of that echo's function.
+  * A resonance processor increases the user's resonance for all tests that use the stat (i.e. threading, all tasking tests, etc.)
+  * A threading processor grants a dice pool bonus equal to it's level for three complex forms, chosen when the focus is created
+  * A tasking processor grants a dice pool bonus equal to it's level when compiling or registering a specific Sprite type, chosen when the focus is created.
+  * A sustaining processor will maintain a threaded complex form up to its rating in Level.
+
+A device that has been created to act as a co-processor will function as the type of device it was designed to be, for the most part; however, to a skilled observer there are some differences. First, all of a technomancer's co-processor act as though they are on a PAN and slaved to the technomancer's living persona. Second, a threshold 4 matrix perception test will reveal that they are co-processor. Finally, the device's UI will often look very strange (though still usable), often with a motif related to the appearance of the technomancer's living persona.

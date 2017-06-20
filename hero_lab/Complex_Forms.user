@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document signature="Hero Lab Data">
+  <fileinfo>
+    <info_author>Travis Theune</info_author>
+    </fileinfo>
+  <thing id="cfElevate" name="Elevate" description="Target resists with Willpower + Firewall.  You put a number of MARKs equal to your net hits on target device." compset="Form" summary="asdf">
+    <fieldval field="spDrain" value="2"/>
+    <fieldval field="shortname" value="Elevate"/>
+    <tag group="User" tag="Unique" name="Elevate" abbrev="Elevate"/>
+    <tag group="PowDur" tag="Permanent" name="Permanent" abbrev="P"/>
+    <tag group="PowTarget" tag="Device"/>
+    </thing>
+  <thing id="spElevate" name="Elevate" compset="Special" uniqueness="useronce">
+    <tag group="Helper" tag="FormSpec" name="Complex Form Modifier Collector" abbrev="Complex Form Modifier Collector"/>
+    <tag group="SkillHelp" tag="SpecModCol" name="Also a Modifier Collector" abbrev="Also a Modifier Collector"/>
+    <tag group="SkillList" tag="skaSoftwar" name="Software" abbrev="Software"/>
+    <tag group="HasForm" tag="cfElevate"/>
+    </thing>
+  <thing id="cfSlide_to" name="Slide to Unlock" description="Simple as that: On a Net Hit hit, you can unlock (or lock) any Maglock, which resist with its Rating*2. Spares you at least one Action - which might buy your team just the time to get out of the room before the Nerve Gas sets in. :)" compset="Form" summary="asdf">
+    <fieldval field="spDrain" value="-2"/>
+    <fieldval field="shortname" value="Slide to Unlock"/>
+    <tag group="User" tag="Unique" name="Slide" abbrev="Slide"/>
+    <tag group="PowTarget" tag="Device"/>
+    <tag group="PowDur" tag="Permanent"/>
+    </thing>
+  <thing id="spSlide_to" name="Slide to Unlock" compset="Special" uniqueness="useronce">
+    <tag group="Helper" tag="FormSpec" name="Complex Form Modifier Collector" abbrev="Complex Form Modifier Collector"/>
+    <tag group="SkillHelp" tag="SpecModCol" name="Also a Modifier Collector" abbrev="Also a Modifier Collector"/>
+    <tag group="SkillList" tag="skaSoftwar" name="Software" abbrev="Software"/>
+    <tag group="HasForm" tag="cfSlide_to"/>
+    </thing>
+  <thing id="cfAVOID" name="AVOID" description="Alternate Verification Of IDentity\nIn the wave of a hand, you pull together Resonance like quantum-code to forge a temporary Fake SIN. Your hits determine the rating of the Fake SIN. This Complex Form only works in one instance of a SIN check. Each use of this generates a &quot;new&quot; SIN, although you are capable of making it applicable in regards to your metatype, sex, height, etc. If the SIN check fails, the device alerts the owner of foul play (such as &quot;this is fake&quot;, &quot;I&apos;ve been hacked&quot;, etc). If the device beats the threshold with a number of hits equal to your hits, the device alerts its owner that Resonance is being used. NOTE: Since you are generating a &quot;new&quot; SIN each time, if the same person runs two checks on you for some reason, there is a chance they will realize that there is an inconsistency.  GM should situationally determine how best to approach this." compset="Form" summary="asdf">
+    <fieldval field="shortname" value="AVOID"/>
+    <fieldval field="spDrain" value="2"/>
+    <tag group="PowTarget" tag="Device"/>
+    <tag group="User" tag="Unique" name="Elevate" abbrev="Elevate"/>
+    <tag group="PowDur" tag="Instant"/>
+    </thing>
+  <thing id="spAVOID" name="AVOID" compset="Special" uniqueness="useronce">
+    <tag group="Helper" tag="FormSpec" name="Complex Form Modifier Collector" abbrev="Complex Form Modifier Collector"/>
+    <tag group="SkillHelp" tag="SpecModCol" name="Also a Modifier Collector" abbrev="Also a Modifier Collector"/>
+    <tag group="SkillList" tag="skaSoftwar" name="Software" abbrev="Software"/>
+    <tag group="HasForm" tag="cfAVOID"/>
+    </thing>
+  <thing id="cfWhitespa" name="Whitespace" description="By altering your Living Persona, you can evade detection from wireless-on Sensors. Make a Threading test and note your hits. Sensors within [Level] x 2 meters of you must make a Device Rating x 2 Opposed test against your hits. If you win you are invisible, soundless, heatless, etc to Sensors. Any recordings will not have you present, however your Resonance Signature will be. This also will affect cybereyes, cyberears, ultrasound, etc for as long as they are wireless on or you either stop sustaining this or move out of range." compset="Form" summary="asdf">
+    <fieldval field="shortname" value="Whitespace"/>
+    <tag group="User" tag="Unique" name="Elevate" abbrev="Elevate"/>
+    <tag group="PowTarget" tag="Self"/>
+    <tag group="PowDur" tag="Sustained"/>
+    </thing>
+  <thing id="spWhitespa" name="Whitespace" compset="Special" uniqueness="useronce">
+    <tag group="Helper" tag="FormSpec" name="Complex Form Modifier Collector" abbrev="Complex Form Modifier Collector"/>
+    <tag group="SkillHelp" tag="SpecModCol" name="Also a Modifier Collector" abbrev="Also a Modifier Collector"/>
+    <tag group="SkillList" tag="skaSoftwar" name="Software" abbrev="Software"/>
+    <tag group="HasForm" tag="cfWhitespa"/>
+    </thing>
+  <thing id="cfECleaner" name="Cleaner - Errata" description="Illegal actions leave traces in the Matrix, but the Resonance can erase a few of them. Make a Simple Software + Resonance [Level] test. For each hit, reduce the target&apos;s Overwatch Score by 1." compset="Form">
+    <fieldval field="spDrain" value="-2"/>
+    <tag group="PowTarget" tag="Persona" name="Persona" abbrev="Persona"/>
+    <tag group="User" tag="Unique" name="Elevate" abbrev="Elevate"/>
+    <tag group="PowDur" tag="Permanent" name="Permanent" abbrev="P"/>
+    </thing>
+  <thing id="spECleaner" name="Cleaner - Errata" compset="Special" uniqueness="useronce">
+    <tag group="Helper" tag="FormSpec" name="Complex Form Modifier Collector" abbrev="Complex Form Modifier Collector"/>
+    <tag group="SkillHelp" tag="SpecModCol" name="Also a Modifier Collector" abbrev="Also a Modifier Collector"/>
+    <tag group="SkillList" tag="skaSoftwar" name="Software" abbrev="Software"/>
+    <tag group="HasForm" tag="cfECleaner"/>
+    </thing>
+  <thing id="cfEDoDP" name="Diffusion of Data Processing - Errata" description="Make an Opposed Software + Resonance [Level] v. Willpower + Firewall test. If you win, the target&apos;s attribute is reduced by your net hits. You can&apos;t reduce an attribute to less than 1." compset="Form">
+    <fieldval field="spDrain" value="-2"/>
+    <tag group="PowTarget" tag="Device" name="Device" abbrev="Device"/>
+    <tag group="User" tag="Unique" name="Elevate" abbrev="Elevate"/>
+    <tag group="PowDur" tag="Sustained" name="Sustained" abbrev="S"/>
+    </thing>
+  <thing id="spEDoDP" name="Diffusion of Data Processing - Errata" compset="Special" uniqueness="useronce">
+    <tag group="Helper" tag="FormSpec" name="Complex Form Modifier Collector" abbrev="Complex Form Modifier Collector"/>
+    <tag group="SkillHelp" tag="SpecModCol" name="Also a Modifier Collector" abbrev="Also a Modifier Collector"/>
+    <tag group="SkillList" tag="skaSoftwar" name="Software" abbrev="Software"/>
+    <tag group="HasForm" tag="cfEDoDP"/>
+    </thing>
+  <thing id="cfEDoF" name="Diffusion of Firewall - Errata" description="Make an Opposed Software + Resonance [Level] v. Willpower + Firewall test. If you win, the target&apos;s attribute is reduced by your net hits. You can&apos;t reduce an attribute to less than 1." compset="Form">
+    <fieldval field="spDrain" value="-2"/>
+    <tag group="PowTarget" tag="Device" name="Device" abbrev="Device"/>
+    <tag group="User" tag="Unique" name="Elevate" abbrev="Elevate"/>
+    <tag group="PowDur" tag="Sustained" name="Sustained" abbrev="S"/>
+    </thing>
+  <thing id="spEDoF" name="Diffusion of Firewall - Errata" compset="Special" uniqueness="useronce">
+    <tag group="Helper" tag="FormSpec" name="Complex Form Modifier Collector" abbrev="Complex Form Modifier Collector"/>
+    <tag group="SkillHelp" tag="SpecModCol" name="Also a Modifier Collector" abbrev="Also a Modifier Collector"/>
+    <tag group="SkillList" tag="skaSoftwar" name="Software" abbrev="Software"/>
+    <tag group="HasForm" tag="cfEDoF"/>
+    </thing>
+  <thing id="cfEEditor" name="Editor - Errata" description="You infuse a file with Resonance long enough to manipulate its contents. Make a Software + Resonance [Level] test against the Intuition + Data Processing of the file&apos;s owner. You can make the same amount of changes to the file that you would be able to make with your net hits in Edit File actions." compset="Form">
+    <fieldval field="spDrain" value="-1"/>
+    <tag group="PowTarget" tag="File" name="File" abbrev="File"/>
+    <tag group="User" tag="Unique" name="Elevate" abbrev="Elevate"/>
+    <tag group="PowDur" tag="Permanent" name="Permanent" abbrev="P"/>
+    </thing>
+  <thing id="spEEditor" name="Editor - Errata" compset="Special" uniqueness="useronce">
+    <tag group="Helper" tag="FormSpec" name="Complex Form Modifier Collector" abbrev="Complex Form Modifier Collector"/>
+    <tag group="SkillHelp" tag="SpecModCol" name="Also a Modifier Collector" abbrev="Also a Modifier Collector"/>
+    <tag group="SkillList" tag="skaSoftwar" name="Software" abbrev="Software"/>
+    <tag group="HasForm" tag="cfEEditor"/>
+    </thing>
+  <thing id="cfEFAQ" name="FAQ - Errata" description="Scanning the very darkest depths of the Matrix to find out exactly what has been going on with the device they physically have or the host they are current inside of, the technomancer is able to delve into the very deepest questions to find out the true purpose of it. Make an immediate Computer + Intuition [Level] Test with Level / 2 (rounded up) dice added to the pool from the complex complex form. Gamemasters should provide information to the player based on the number of hits this test generates, with truly obscure or long-forgotten bytes of information requiring 6 hits." compset="Form">
+    <fieldval field="spDrain" value="-3"/>
+    <tag group="PowTarget" tag="Device"/>
+    <tag group="User" tag="Unique" name="Elevate" abbrev="Elevate"/>
+    <tag group="PowDur" tag="Permanent" name="Permanent" abbrev="P"/>
+    </thing>
+  <thing id="spEFAQ" name="FAQ - Errata" compset="Special" uniqueness="useronce">
+    <tag group="Helper" tag="FormSpec" name="Complex Form Modifier Collector" abbrev="Complex Form Modifier Collector"/>
+    <tag group="SkillHelp" tag="SpecModCol" name="Also a Modifier Collector" abbrev="Also a Modifier Collector"/>
+    <tag group="SkillList" tag="skaSoftwar" name="Software" abbrev="Software"/>
+    <tag group="HasForm" tag="cfEFAQ"/>
+    </thing>
+  <thing id="cfEPuppete" name="Puppeteer - Errata" description="You push Resonance commands into a target, forcing it to perform a Matrix action. Pick a target and a Matrix action for it to perform. Make a Software + Resonance [Level] v. Willpower + Firewall test with a threshold based on the type of action: 1 for a Free Action, 2 for Simple, and 3 for Complex. If you succeed, the target performs that Matrix action as its next available action." compset="Form">
+    <fieldval field="spDrain" value="1"/>
+    <tag group="PowTarget" tag="Device" name="Device" abbrev="Device"/>
+    <tag group="User" tag="Unique" name="Elevate" abbrev="Elevate"/>
+    <tag group="PowDur" tag="Instant" name="Instant" abbrev="I"/>
+    </thing>
+  <thing id="spEPuppete" name="Puppeteer - Errata" compset="Special" uniqueness="useronce">
+    <tag group="Helper" tag="FormSpec" name="Complex Form Modifier Collector" abbrev="Complex Form Modifier Collector"/>
+    <tag group="SkillHelp" tag="SpecModCol" name="Also a Modifier Collector" abbrev="Also a Modifier Collector"/>
+    <tag group="SkillList" tag="skaSoftwar" name="Software" abbrev="Software"/>
+    <tag group="HasForm" tag="cfEPuppete"/>
+    </thing>
+  <thing id="cfESpike" name="Resonance Spike - Errata" description="You send a spike of raw destructive Resonance into the target, causing errors and mayhem. Make a Software + Resonance [Level] v. Willpower + Firewall test. Your target takes 1 box of Matrix damage per net hit, with no chance to resist." compset="Form">
+    <fieldval field="spDrain" value="-3"/>
+    <tag group="PowTarget" tag="Device" name="Device" abbrev="Device"/>
+    <tag group="User" tag="Unique" name="Elevate" abbrev="Elevate"/>
+    <tag group="PowDur" tag="Instant" name="Instant" abbrev="I"/>
+    </thing>
+  <thing id="spESpike" name="Resonance Spike - Errata" compset="Special" uniqueness="useronce">
+    <tag group="Helper" tag="FormSpec" name="Complex Form Modifier Collector" abbrev="Complex Form Modifier Collector"/>
+    <tag group="SkillHelp" tag="SpecModCol" name="Also a Modifier Collector" abbrev="Also a Modifier Collector"/>
+    <tag group="SkillList" tag="skaSoftwar" name="Software" abbrev="Software"/>
+    <tag group="HasForm" tag="cfESpike"/>
+    </thing>
+  <thing id="cfERVeil" name="Resonance Veil - Errata" description="This complex form lets you make the target believe something has happened in the Matrix. It&apos;s a convincing illusion if you can succeed in a Software + Resonance [Level] v. Intuition + Data Processing test. Even if the target has reason to believe what it&apos;s seeing is fake, it needs to make a Matrix Perception Test with a threshold equal to your net hits to see through the illusion." compset="Form">
+    <fieldval field="spDrain" value="-3"/>
+    <tag group="PowTarget" tag="Device" name="Device" abbrev="Device"/>
+    <tag group="User" tag="Unique" name="Elevate" abbrev="Elevate"/>
+    <tag group="PowDur" tag="Sustained" name="Sustained" abbrev="S"/>
+    </thing>
+  <thing id="spERVeil" name="Resonance Veil - Errata" compset="Special" uniqueness="useronce">
+    <tag group="Helper" tag="FormSpec" name="Complex Form Modifier Collector" abbrev="Complex Form Modifier Collector"/>
+    <tag group="SkillHelp" tag="SpecModCol" name="Also a Modifier Collector" abbrev="Also a Modifier Collector"/>
+    <tag group="SkillList" tag="skaSoftwar" name="Software" abbrev="Software"/>
+    <tag group="HasForm" tag="cfERVeil"/>
+    </thing>
+  <thing id="cfESVeil" name="Static Veil - Errata" description="Resonance energy coils around you, hiding you from GOD. Make a Simple Software + Resonance [Level] test with a threshold of 1 if the target is on the public grid and 2 on any other grid. As long as you sustain this complex form and the target doesn&apos;t hop to another grid, the veiled persona&apos;s Overwatch Score doesn&apos;t increase due to time (p. 231). It still increases as a result of the target&apos;s illegal actions, though." compset="Form">
+    <fieldval field="spDrain" value="-3"/>
+    <tag group="PowTarget" tag="Persona" name="Persona" abbrev="Persona"/>
+    <tag group="User" tag="Unique" name="Elevate" abbrev="Elevate"/>
+    <tag group="PowDur" tag="Sustained" name="Sustained" abbrev="S"/>
+    </thing>
+  <thing id="spESVeil" name="Static Veil - Errata" compset="Special" uniqueness="useronce">
+    <tag group="Helper" tag="FormSpec" name="Complex Form Modifier Collector" abbrev="Complex Form Modifier Collector"/>
+    <tag group="SkillHelp" tag="SpecModCol" name="Also a Modifier Collector" abbrev="Also a Modifier Collector"/>
+    <tag group="SkillList" tag="skaSoftwar" name="Software" abbrev="Software"/>
+    <tag group="HasForm" tag="cfESVeil"/>
+    </thing>
+  </document>

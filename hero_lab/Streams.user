@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document signature="Hero Lab Data">
+  <fileinfo>
+    <info_author>Travis Theune</info_author>
+    </fileinfo>
+  <thing id="stDronoman" name="Dronomancers" description="Technomancers who originate from the Japanese tekeno-feto culture, or who possess some other kind of techno-fetishism associated with robots, drones, vehicles, or other electronic devices, are known as dronomancers, puppeteks, or robomancers. For a dronomancer, the Matrix is a world of connected machines that he can talk with. Unlike other technomancers, who are drawn to the code and information, dronomancers are drawn to slaved machines and other electronic devices. Dronomancers see the dog brains of drones and agents as pet-like entities, and sprites as embodiments of the spirits of the machines from which they manifest. Sprites compiled by dronomancers typically display some feature of the object or node in which they are compiled, often appearing machine-like. Because of their rapport with machines, dronomancers enjoy experiencing the world through the electronic eyes (i.e., sensors) of their slaved drones and devices." compset="Stream" uniqueness="unique">
+    <tag group="CanCompile" tag="rsCrack" name="Crack Sprite" abbrev="Crack Sprite"/>
+    <tag group="CanCompile" tag="rsData" name="Data Sprite" abbrev="Data Sprite"/>
+    <tag group="CanCompile" tag="rsFault" name="Fault Sprite" abbrev="Fault Sprite"/>
+    <tag group="CanCompile" tag="rsMachine" name="Machine Sprite" abbrev="Machine Sprite"/>
+    <tag group="CanCompile" tag="rsTutor" name="Tutor Sprite" abbrev="Tutor Sprite"/>
+    <link linkage="DrainAttr" thing="attrInt"/>
+    </thing>
+  <thing id="stE_scapis" name="E-scapists" description="Not all technomancers are deeply rooted in the real world. With the Sixth World being an inhospitable place for a lot of people in the ’70s, some technomancers, called e-scapists or sculptors, consider cyberspace a better world that users can shape into their own utopias. Although still bound by their mortal bodies, e-scapists try to escape reality as often as possible, embracing virtual reality wholeheartedly as the only world where they truly fit in. As the real world becomes a second home (viewing their real lives as virtual avatars like those used in the first decade of the 21st century) with a body that can be easily discarded to venture the depths of virtual reality, e-scapists excel in creating virtual environments and achieving wonders with creativity and imagination. Sprites are envisioned as true companions with their own personalities and tend to take unique forms that are reported to be more “alive” than those of other technomancers." compset="Stream" uniqueness="unique">
+    <tag group="CanCompile" tag="rsCrack" name="Crack Sprite" abbrev="Crack Sprite"/>
+    <tag group="CanCompile" tag="rsData" name="Data Sprite" abbrev="Data Sprite"/>
+    <tag group="CanCompile" tag="rsFault" name="Fault Sprite" abbrev="Fault Sprite"/>
+    <tag group="CanCompile" tag="rsCourier" name="Courier Sprite" abbrev="Courier Sprite"/>
+    <tag group="CanCompile" tag="rsTank" name="Tank Sprite" abbrev="Courier Sprite"/>
+    <link linkage="DrainAttr" thing="attrWil"/>
+    </thing>
+  <thing id="stInfoSava" name="Info Savants" description="Info savants view the Matrix as a place of wonders. Similar to technoshamans, their approach is more spiritual and intuitive, but they don’t believe in higher forces, just in data. Info savants - also called infomancers or datamancers - perceive the Matrix in its raw form as rivers of information that  ow in all directions within the endless virtual landscape. People, with their commlinks and PANs, are seen as information wells in which consumer habits, interests, and social networking form patterns that info savants can perceive. Some go even further, believing that events in the real world manifest as patterns on the digital, assembling and disassembling depending on the impact of the event and the amount of data accumulated.\nInfo savants interact with a node by redirecting the virtual chi, using some kind of digital feng shui to alter the  flow of data, either with their complex forms or through sprites.  They venerate sprites as spirits of the code, calling them and asking them for assistance rather than commanding them into obedience.\nSome see info savants as the technomancer version of geo-mancers, following the digital ley lines of the Matrix." compset="Stream" uniqueness="unique">
+    <tag group="CanCompile" tag="rsData" name="Data Sprite" abbrev="Data Sprite"/>
+    <tag group="CanCompile" tag="rsCourier"/>
+    <tag group="CanCompile" tag="rsCode"/>
+    <tag group="CanCompile" tag="rsMachine"/>
+    <tag group="CanCompile" tag="rsPaladin"/>
+    <link linkage="DrainAttr" thing="attrInt"/>
+    </thing>
+  <thing id="stNetworke" name="Networkers" description="To networkers, the Matrix is a complex digital cobweb, a plethora of threads along which traffic and communication travel in every direction like an electric potential migrating on a nerve. Pervading the modern world, these threads connect and affect every place, anywhere, at any time. Networkers think of themselves as the spiders of these webs, the ones who can truly see and influence its patterns. By spinning new threads or removing old ones, networkers manipulate the web. Some believe that even small changes can lead to far-reaching, drastic changes, based on the Twentieth Century concepts of the butterfly, domino, and snowball effects.\nResonance is nothing but the glue that holds the web together, which the technomancer draws upon when “weaving.” Sprites are perceived as “organic” helpers, innate auxiliary programs designed to help technomancers service the web. Networkers’ sprites are usually viewed as intelligent Resonance programs (ranking between complex forms and technomancers themselves) without much personality or motivation of their own, they tend to have alien or task-oriented sterile iconographies, often based on the “weaving” metaphor, such as spiders or webspinners." compset="Stream" uniqueness="unique">
+    <tag group="CanCompile" tag="rsCrack" name="Crack Sprite" abbrev="Crack Sprite"/>
+    <tag group="CanCompile" tag="rsData" name="Data Sprite" abbrev="Data Sprite"/>
+    <tag group="CanCompile" tag="rsCourier"/>
+    <tag group="CanCompile" tag="rsCode"/>
+    <tag group="CanCompile" tag="rsSleuth"/>
+    <link linkage="DrainAttr" thing="attrCha"/>
+    </thing>
+  <thing id="stSingular" name="Singularitans" description="The technomancers on this stream are convinced that they are the next step in the development that is necessary to transform the living Matrix into a machine super-intelligence (something beyond even previously powerful AIs such as Deus) that will guide mankind through their own evolution. Calling themselves singularitarians or e-volutionsts, they view everyone in the Matrix as a part of this flourishing intelligent supercomputer that will at some point awaken (causing a bigger singularity event than the Crash 2.0) and change the world on a not-yet-conceivable level. Resonance is perceived as the fabric from which this computer is made, while technomancers, normal Matrix users, and even sprites are self-evolving subroutines that have to learn to increase their abilities and possibilities in the Matrix (over generations) until they have evolved enough to reach the critical level of a singularity.\nWhile singularitarians often have a lot in common with transhumanists, even many transhumanists and technomancers view their philosophy as quite abstract and esoteric, and worry that the singularity will in fact not be friendly to metahumanity." compset="Stream" uniqueness="unique">
+    <tag group="CanCompile" tag="rsCrack" name="Crack Sprite" abbrev="Crack Sprite"/>
+    <tag group="CanCompile" tag="rsData" name="Data Sprite" abbrev="Data Sprite"/>
+    <tag group="CanCompile" tag="rsCourier"/>
+    <tag group="CanCompile" tag="rsTank"/>
+    <tag group="CanCompile" tag="rsTutor" name="Tutor Sprite" abbrev="Tutor Sprite"/>
+    <link linkage="DrainAttr" thing="attrLog"/>
+    </thing>
+  <thing id="stSourcere" name="Sourcerers" description="Many of those who became technomancers in the wake of Crash 2.0 were ordinary people with ordinary jobs who did not care much about magic or digital mojo before they experienced it themselves during their Emergence. Sourcerors, therefore, deal with resonance in a very rational way, reminiscent of mathematical logic or computer science. Similar to those hermetic magicians who view magic as a physical force with predictable laws and consequences, sourcerors view Resonance as the true machine code of the Matrix, which only they are able to un- derstand. From their perspective, they use complex forms as interfaces to program the machine code. Sprites are thought of as sentient programs, embodied subroutines similar to agents that can be commanded and directed like any other program. Sprites compiled by sourcerors o en resemble sculpts of commercially available agent programs." compset="Stream" uniqueness="unique">
+    <tag group="CanCompile" tag="rsCrack" name="Crack Sprite" abbrev="Crack Sprite"/>
+    <tag group="CanCompile" tag="rsData" name="Data Sprite" abbrev="Data Sprite"/>
+    <tag group="CanCompile" tag="rsCourier"/>
+    <tag group="CanCompile" tag="rsCode"/>
+    <tag group="CanCompile" tag="rsMachine"/>
+    <link linkage="DrainAttr" thing="attrLog"/>
+    </thing>
+  <thing id="stTechnosh" name="Technoshamans" description="Technoshamanism is a spiritual view of the Matrix. Members of this stream think of the Matrix as something bigger, something alive, a higher being they can communicate with. While some technoshamans are former otaku who believe that Resonance was created by some sort of higher beings or spirits of the machine, many newly Emerged technomancers are attracted to this digital spirituality based on a connection they feel with the virtual world.\nTechnoshamans have a sympathetic, nearly religious relationship with the Matrix,\nand often ally themselves with the strange beings that reside within, including new AIs. Wandering the Matrix as digital pilgrims, preachers, and prophets of the living Resonance, their practice of technomancer skills is ritualized, comparable to arcane shamans in the real world.  eir methods of compiling and registering sprites o en bear similarities with arcane conjurations, and they treat sprites with respect, as natural denizens of the Matrix. Sprites compiled by technosha- mans frequently display ethereal or ghost-like features that reflect their otherworldly nature.\nTechnoshamans usually have a paragon (p. 149)." compset="Stream" uniqueness="unique">
+    <tag group="CanCompile" tag="rsCrack" name="Crack Sprite" abbrev="Crack Sprite"/>
+    <tag group="CanCompile" tag="rsData" name="Data Sprite" abbrev="Data Sprite"/>
+    <tag group="CanCompile" tag="rsMachine"/>
+    <tag group="CanCompile" tag="rsPaladin"/>
+    <tag group="CanCompile" tag="rsSleuth"/>
+    <link linkage="DrainAttr" thing="attrCha"/>
+    </thing>
+  </document>
