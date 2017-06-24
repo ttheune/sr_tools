@@ -1,4 +1,3 @@
-import json, os
 from random import randint
 
 # For number of dice returns an array of the counts
@@ -22,12 +21,13 @@ def edge(sixes):
     return counts
 
 # Determine the result of the roll
-def results(rolls, edges):
-    dice = 0
+def results(rolls, edges, init):
     result = {}
     result["rolls"] = rolls
+    result["edges"] = edges
+    result["glitch"] = None
+    dice = 0
     if edges:
-        result["edges"] = edges
         ones = rolls[0] + edges[0]
         hits = rolls[4] + rolls[5] + edges[4] + edges[5]
         for i in range(6):
@@ -45,16 +45,45 @@ def results(rolls, edges):
             result["glitch"] = "Critical"
         else:
             result["glitch"] = hits
+
+    result["hits"] = hits
+
+    if init:
+        if edges:
+            result["passes"] = "You can not pre-edge initiative"
+            return result
+        if init < 0:
+            result["passes"] = "Positive numbers only"
+            return result
+        if init > 20:
+            result["passes"] = "Max possible initiative score is 20"
+            return result
+        if dice > 5:
+            result["passes"] = "Max possible initiative dice is 5"
+            return result
+        d = 1
+        total = 0
+        for score in rolls:
+            total += score * d
+            d += 1
+        init += total
+        if init % 10 > 0:
+            result["passes"] = init/10+1
+        else:
+            result["passes"] = init/10
     else:
-        result["hits"] = hits
+        result["passes"] = None
 
     return result
 
 def lambda_handler(event, context):
-    rolls = roll(event["dice"])
+    if event["dice"]:
+        rolls = roll(event["dice"])
+    else:
+        rolls = roll(0)
     if event["edge"]:
         edges = edge(rolls[5])
     else:
         edges = None
-    result = results(rolls, edges)
+    result = results(rolls, edges, event["init"])
     return result
