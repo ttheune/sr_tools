@@ -28,7 +28,7 @@ def edge(sixes):
     counts = roll(sixes)
     for i in range(counts[5]):
         explode = edge(1)
-        for j in range(0, 5):
+        for j in range(6):
             counts[j] += explode[j]
     return counts
 
@@ -37,7 +37,7 @@ def results(rolls, edges):
     dice = 0
     ones = rolls[0] + edges[0]
     hits = rolls[4] + rolls[5] + edges[4] + edges[5]
-    for i in range(0, 5):
+    for i in range(6):
         dice += rolls[i] + edges[i]
     if ones > dice/2:
         if hits == 0:

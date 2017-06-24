@@ -23,22 +23,31 @@ def edge(sixes):
 
 # Determine the result of the roll
 def results(rolls, edges):
+    dice = 0
     result = {}
     result["rolls"] = rolls
-    result["edges"] = edges
-    dice = 0
-    ones = rolls[0] + edges[0]
-    hits = rolls[4] + rolls[5] + edges[4] + edges[5]
-    for i in range(6):
-        dice += rolls[i] + edges[i]
+    if edges:
+        result["edges"] = edges
+        ones = rolls[0] + edges[0]
+        hits = rolls[4] + rolls[5] + edges[4] + edges[5]
+        for i in range(6):
+            dice += rolls[i] + edges[i]
+    else:
+        ones = rolls[0]
+        hits = rolls[4] + rolls[5]
+        for i in range(6):
+            dice += rolls[i]
 
     result["dice"] = dice
-    result["hits"] = hits
+
     if ones > dice/2:
         if hits == 0:
             result["glitch"] = "Critical"
         else:
             result["glitch"] = hits
+    else:
+        result["hits"] = hits
+
     return result
 
 def lambda_handler(event, context):
@@ -46,6 +55,6 @@ def lambda_handler(event, context):
     if event["edge"]:
         edges = edge(rolls[5])
     else:
-        edges = roll(0)
+        edges = None
     result = results(rolls, edges)
     return result
