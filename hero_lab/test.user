@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document signature="Hero Lab Data">
+  <thing id="echoasdf" name="????" compset="Echo" uniqueness="useronce">
+    <exprreq message=""><![CDATA[#echo[echoSkinli] > 1]]></exprreq>
+    </thing>
+  </document>

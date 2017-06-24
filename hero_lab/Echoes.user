@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document signature="Hero Lab Data">
+  <fileinfo>
+    <info_author>Travis Theune</info_author>
+    </fileinfo>
+  <thing id="echoBiowir" name="Biowires" description="Prerequisite: Skinlink\n  The Resonance flows through your nervous system emulating the effects of a Skillwires.  You can access know-/lingua-/active-softs via your Skinlink as if you had a Skilljack.  Your biowires function as if the Skillwires/jack were a rating equal to your Submersion Grade.\n  NOTE: For now just add skillwires and skilljacks of the correct rating for free/0-essence.  I’ve gotta learn more about HL scripting to make this work." compset="Echo" uniqueness="useronce"></thing>
+  </document>

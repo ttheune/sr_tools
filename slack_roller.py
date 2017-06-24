@@ -25,14 +25,11 @@ def roll(dice):
 # With exploding rolls for more 6s
 # [1s, 2s, 3s, 4s, 5s, 6s]
 def edge(sixes):
-    counts = [0] * 6
-    for i in range(sixes):
-        singleRoll = randint(1, 6)
-        counts[singleRoll - 1] += 1
-        if singleRoll == 6: 
-            explode = edge(1)
-            for j in range(0, 5):
-                counts[j] += explode[j]
+    counts = roll(sixes)
+    for i in range(counts[5]):
+        explode = edge(1)
+        for j in range(0, 5):
+            counts[j] += explode[j]
     return counts
 
 # Determine the result of the roll
@@ -43,7 +40,7 @@ def results(rolls, edges):
     for i in range(0, 5):
         dice += rolls[i] + edges[i]
     if ones > dice/2:
-        if hits == 0: 
+        if hits == 0:
             result = '*Critical Glitch*'
         else:
             result = '*Glitch* with *' + str(hits) + '* hits'
@@ -114,7 +111,7 @@ def req():
                 total += score * d
                 d += 1
             init += total
-            if init % 10 > 0: 
+            if init % 10 > 0:
                 passes = init/10+1
             else:
                 passes = init/10
@@ -131,7 +128,7 @@ def req():
         result['hits'] = results(rolls, edges)
         if not args.invis: result['hits'] += ' on ' + str(dice) + ' dice'
         if sum(edges) > 0: result['hits'] += ' with ' + str(sum(edges)) + ' explodes'
-        
+
         verbose = ''
         if show_roll:
             for i in range(6):
@@ -150,6 +147,6 @@ def req():
         return 'ok'
     else:
         return 'No POST'
-        
+
 if __name__ == "__main__":
     app.run(host='0.0.0.0', threaded=True, debug=True)

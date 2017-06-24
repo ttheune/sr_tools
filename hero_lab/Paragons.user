@@ -3,11 +3,11 @@
   <fileinfo>
     <info_author>Travis Theune</info_author>
     </fileinfo>
-  <thing id="quParagon0" name="Paragon 01" description="Zero-One is the beginning and the end, the alpha and the omega. While some call it the Deep Resonance, for lack of a better word, it is the consciousness of the virtual world that permeates everything, the embodiment of virtual harmony, the essence of the code. Followers of Zero-One tend to seek it for guidance and inspiration.
-  - Advantages: +2 die for compiling and registering sprites of any type
-  - Disadvantages: Zero-One is the perfection of the code and demands the same from his followers, or at least teaches them a harsh lesson if they fail. Zero-One technomancers must spend 2 points of Edge to negate a glitch or downgrade a critical glitch." compset="Quality" uniqueness="useronce">
+  <thing id="quPara01" name="Paragon 01" description="Zero-One is the beginning and the end, the alpha and the omega. While some call it the Deep Resonance, for lack of a better word, it is the consciousness of the virtual world that permeates everything, the embodiment of virtual harmony, the essence of the code. Followers of Zero-One tend to seek it for guidance and inspiration.\n   - Advantages: +2 die for compiling and registering sprites of any type.\n  - Disadvantages: Zero-One is the perfection of the code and demands the same from his followers, or at least teaches them a harsh lesson if they fail. Zero-One technomancers must spend 2 points of Edge to negate a glitch or downgrade a critical glitch." compset="Quality" uniqueness="useronce">
     <fieldval field="trtBPCost" value="5"/>
     <tag group="QualityCat" tag="Positive" name="Positive Quality" abbrev="Positive Quality"/>
+    <tag group="Helper" tag="AIOK" name="This quality is appropriate to AIs" abbrev="This quality is appropriate to AIs"/>
+    <tag group="MutualExcl" tag="Paragon" name="Paragon" abbrev="Paragon"/>
     <eval phase="Effects" priority="10000"><![CDATA[
       ~if we're not active, just get out now
       doneif (activated = 0)
@@ -18,5 +18,19 @@
       doneif (activated = 0)
 
       perform #dicepool[skaCompile,+,2,""]]]></eval>
+    </thing>
+  <thing id="quParaAlia" name="Paragon Alias" description="Alias is the spy of the Matrix, the embodiment of the changing hacker persona or anonymous user. Alias is all about switching or exchanging access IDs, codes, and places, both in the Matrix and real life. Alias has no face. He becomes indistinguishable from other Matrix users, fooling and impersonating other users by stealing their codes.\n  - Advantages: +2 dice to Spoof Tests, +1 die for Crack or Sleuth sprites (player must choose one).\n  - Disadvantages: Alias technomancers must maintain at least 3 identities/lifestyles at all times and may not keep an identity for longer than 4 months.  This probably means moving, but if the technomancer can arrange for the old identity to transfer ownership of the lifestyle to new identity they need not move." compset="Quality" uniqueness="useronce">
+    <fieldval field="trtBPCost" value="5"/>
+    <tag group="QualityCat" tag="Positive" name="Positive Quality" abbrev="Positive Quality"/>
+    <tag group="Helper" tag="AIOK" name="This quality is appropriate to AIs" abbrev="This quality is appropriate to AIs"/>
+    <tag group="User" tag="NeedDomain" name="NeedDomain" abbrev="NeedDomain"/>
+    <tag group="MutualExcl" tag="Paragon" name="Paragon" abbrev="Paragon"/>
+    </thing>
+  <thing id="qaParaArch" name="Paragon Archivist" description="The Archivist is the embodiment of amassed information. As the virtual chronicler, she hoards and sorts the history of man and the world’s intellectual wealth and knowledge within the innumerable archives in the Matrix, never losing track of how information interconnects and cross-references.\n  - Advantages: +2 dice for all Matrix Search Tests, +1 die for Code or Data sprites (player must choose one).\n  - Disadvantages: Technomancers following the Archivist cannot willingly destroy or corrupt data.  The technomancer must succeed at a Willpower + Logic (3) Test to purposely delete or corrupt data (or order a sprite to do so)." compset="Quality" uniqueness="useronce">
+    <fieldval field="trtBPCost" value="5"/>
+    <tag group="QualityCat" tag="Positive" name="Positive Quality" abbrev="Positive Quality"/>
+    <tag group="Helper" tag="AIOK" name="This quality is appropriate to AIs" abbrev="This quality is appropriate to AIs"/>
+    <tag group="User" tag="NeedDomain" name="NeedDomain" abbrev="NeedDomain"/>
+    <tag group="MutualExcl" tag="Paragon" name="Paragon" abbrev="Paragon"/>
     </thing>
   </document>
