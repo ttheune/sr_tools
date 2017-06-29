@@ -22,11 +22,14 @@ def edge(sixes):
 
 # Determine the result of the roll
 def results(rolls, edges, init):
-    result = {}
-    result["rolls"] = rolls
-    result["edges"] = edges
-    result["glitch"] = None
+    # Build the result json
+    result = {
+        "rolls":rolls,
+        "edges":edges,
+        "glitch":None
+    }
     dice = 0
+
     if edges:
         ones = rolls[0] + edges[0]
         hits = rolls[4] + rolls[5] + edges[4] + edges[5]
@@ -50,16 +53,19 @@ def results(rolls, edges, init):
 
     if init:
         if edges:
-            result["passes"] = "You can not pre-edge initiative"
+            result = {"err":"You can not pre-edge initiative"}
+            return result
+        if not isinstance(init, (int)):
+            result = {"err":"%s is not an integer" % init}
             return result
         if init < 0:
-            result["passes"] = "Positive numbers only"
+            result = {"err":"Positive numbers only"}
             return result
         if init > 20:
-            result["passes"] = "Max possible initiative score is 20"
+            result = {"err":"Max possible initiative score is 20"}
             return result
         if dice > 5:
-            result["passes"] = "Max possible initiative dice is 5"
+            result = {"err":"Max possible initiative dice is 5"}
             return result
         d = 1
         total = 0
@@ -78,7 +84,11 @@ def results(rolls, edges, init):
 
 def lambda_handler(event, context):
     if event["dice"]:
-        rolls = roll(event["dice"])
+        if event["dice"] < 100:
+            rolls = roll(event["dice"])
+        else:
+            result = {"err":"%s was more than 99 dice." % event["dice"]}
+            return result
     else:
         rolls = roll(0)
     if event["edge"]:
