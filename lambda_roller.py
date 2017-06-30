@@ -77,8 +77,10 @@ def results(rolls, edges, init):
             result["passes"] = init/10+1
         else:
             result["passes"] = init/10
+        result["init"] = init
     else:
         result["passes"] = None
+        result["init"] = None
 
     return result
 
