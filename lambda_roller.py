@@ -32,16 +32,10 @@ def results(rolls, edges, init):
     dice = 0
     # Calculate number of 4's and 5's for hits
     # and 1's to check for glitches
-    if edges:
-        ones = rolls[0] + edges[0]
-        hits = rolls[4] + rolls[5] + edges[4] + edges[5]
-        for i in range(6):
-            dice += rolls[i] + edges[i]
-    else:
-        ones = rolls[0]
-        hits = rolls[4] + rolls[5]
-        for i in range(6):
-            dice += rolls[i]
+    ones = rolls[0] if not edges else rolls[0] + edges[0]
+    hits = rolls[4] + rolls[5] if not edges else rolls[4] + rolls[5] + edges[4] + edges[5]
+    for i in range(6):
+        dice += rolls[i] if not edges else rolls[i] + edges[i]
     # Set the total number of dice rolled
     # this is to more easily calculate glitches as
     # well as returning to the user how many more
