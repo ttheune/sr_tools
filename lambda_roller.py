@@ -26,7 +26,8 @@ def results(rolls, edges, init):
     result = {
         "rolls":rolls,
         "edges":edges,
-        "glitch":None
+        "glitch":None,
+        "err":None
     }
     dice = 0
 

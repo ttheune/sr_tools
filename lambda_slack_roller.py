@@ -50,16 +50,21 @@ def parse_text(text):
         dice = int(re.search('^\d+',text).group(0))
         return roll(dice)
 
-def results(res):
+def results(results):
+    if results['err']:
+            return {"text": results['err']}
     output = ''
-    if res['glitch'] = "Critical":
+    if results['glitch'] == "Critical":
         output = "UhOh, Grit Glitch!\n"
-    elif res['glitch']:
-        output = "Glitch!\n"
-    if res['init']:
-        output += "You get %s passes at %s" % (res['passes'],res['init'])
+    elif results['glitch']:
+        output == "Glitch!\n"
+    if results['init']:
+        output += "You get %s passes at %s\n" % (results['passes'],results['init'])
     else:
-        output += "You got %s hits on %s dice" % (res['hits'],res['dice'])
+        output += "You got %s hits on %s dice\n" % (results['hits'],results['dice'])
+
+
+    return {"text":output,"response_type":"in_channel"}
 
 def lambda_handler(event, context):
     params = parse_qs(event['body'])
@@ -68,9 +73,6 @@ def lambda_handler(event, context):
         logger.error("Request token (%s) does not match expected", token)
         return respond(Exception('Invalid request token'))
 
-    response = {
-        "text":"%s" % parse_text(params['text'][0]),
-        "response_type":"in_channel"
-    }
+    result = results(parse_text(params['text'][0]))
 
-    return respond(None, response)
+    return respond(None, result)
