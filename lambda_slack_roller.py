@@ -102,7 +102,7 @@ def results(results):
     if results['glitch'] == "Critical":
         output = "UhOh, Grit Glitch!\n"
     elif results['glitch']:
-        output == "Glitch!\n"
+        output = "Glitch!\n"
     if results['init']:
         output += "You get %s passes at %s\n" % (results['passes'],results['init'])
     else:
