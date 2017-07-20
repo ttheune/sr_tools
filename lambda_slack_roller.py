@@ -2,8 +2,8 @@ import boto3
 import json
 import logging
 import os
-import requests
 import re
+import requests
 
 from base64 import b64decode
 from urlparse import parse_qs
@@ -31,13 +31,14 @@ def respond(err, res=None):
 
 # Call the roller api and pass on the json response
 # See https://github.com/ttheune/sr_tools/blob/master/lambda_roller.py for details
-def roll(dice, edge=None, init=None):
+def roll(dice, edge=None, init=None, verbose=None):
     base_url = 'https://api.tenminutesout.net/v1/sr_roller'
     headers = {'x-api-key':roller_token}
     data = {
         "dice":int(dice),
         "edge":bool(edge),
-        "init":init
+        "init":init,
+        "verbose":bool(verbose)
     }
     response = requests.post(base_url, headers=headers, data=json.dumps(data))
     return response.json()
@@ -45,22 +46,49 @@ def roll(dice, edge=None, init=None):
 # Read the text field from slack and try to clean it up
 # so we can send it to the roller API
 def parse_text(text):
+    # Usage information
+    usage = "Usage: /roll <dice> [edge|init <score>|verb]\n"
+    usage += "'edge' 'init' and 'verb' are optional, with 'edge' and 'init'\n"
+    usage += "being mutually exclusive.\n"
+    usage += "<dice> and <score> must be numbers.\n"
+    usage += "<dice> must be between 0 and 99.\n"
+    usage += "<score> must be between 1 and 20.\n"
+    usage += "'verb' will give verbose results showing die rolls."
+
+    # Get the number of dice, and make sure the first field is an int
+    try:
+        dice = int(re.search('^\d+',text).group(0))
+    except:
+        output = "Request did not begin with a number.\n"
+        return {'err':output + usage}
+
     # initiative is handled differently, pull the number before and after the word
     # to send dice and value to the roller API
     if "init" in text:
-        dice = int(re.search('^\d+',text).group(0))
-        init = int(re.search('(?<=init )\d+',text).group(0))
-        return roll(dice,init=init)
+        try:
+            init = int(re.search('(?<=init )\d+',text).group(0))
+        except:
+            output = "Tried to roll init without an initiative score.\n"
+            return {'err':output + usage}
+        if "verb" in text:
+            return roll(dice,init=init,verbose=True)
+        else:
+            return roll(dice,init=True)
+
     # Check for edge, if it's there, send the bool to the roller API with the die pool
     elif "edge" in text:
-        dice = re.search('^\d+',text).group(0)
-        return roll(dice,edge=True)
+        if "verb" in text:
+            return roll(dice,edge=True,verbose=True)
+        else:
+            return roll(dice,edge=True)
+
     # Simplest case, just take the digits at the begining of the text and send those
-    # to the roller API
-    # NOTE: should check to make sure theres digits at the begining of the text always
+    # to the roller API regardless of what else follows.
     else:
-        dice = int(re.search('^\d+',text).group(0))
-        return roll(dice)
+        if "verb" in text:
+            return roll(dice,verbose=True)
+        else:
+            return roll(dice)
 
 # Take the results from parse_test() and build a human friendly response to
 # post in Slack.
@@ -79,6 +107,10 @@ def results(results):
         output += "You get %s passes at %s\n" % (results['passes'],results['init'])
     else:
         output += "You got %s hits on %s dice\n" % (results['hits'],results['dice'])
+    if results['verbose']:
+        for c in range(6):
+            output += ":die_%s: %s " % (c+1,results['rolls'][c])
+
     # Return the response to the channel so everyone can see.
     return {"text":output,"response_type":"in_channel"}
 

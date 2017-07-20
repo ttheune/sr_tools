@@ -21,12 +21,13 @@ def edge(sixes):
     return counts
 
 # Determine the result of the roll
-def results(rolls, edges, init):
+def results(rolls, edges, init, verbose):
     # Build the result json
     result = {
         "rolls":rolls,
         "edges":edges,
         "glitch":None,
+        "verbose":verbose,
         "err":None
     }
     dice = 0
@@ -107,6 +108,11 @@ def lambda_handler(event, context):
         edges = edge(rolls[5])
     else:
         edges = None
+    # Pass verbose information
+    if event["verbose"]:
+        verbose = True
+    else:
+        verbose = None
 
     # Pass on the output from results() to the user
-    return results(rolls, edges, event["init"])
+    return results(rolls, edges, event["init"],verbose)
