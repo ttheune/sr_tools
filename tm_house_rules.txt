@@ -192,7 +192,7 @@ FORMS:
     Target: Device
     Duration: P
     Fade Value: L + 2
-  Target resists with Willpower + Firewall.  You put a number of MARKs equal to your net hits on target device.
+  Target resists with Willpower + Firewall.  You put a number of MARKs equal to your net hits on target device.  NOTE: this form causes Overwatch the same way illegal matrix actions do.  Resisted hits add to your OS.
 
   - Resonance Reverb
     Target: Self
