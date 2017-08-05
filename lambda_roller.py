@@ -125,14 +125,7 @@ def lambda_handler(event, context):
     # Input is {'dice':null|int,'edge':bool,'init':null|int}
     # Lets make sure we aren't trying to randomize the universe,
     # keep it to two digits of dice
-    if event["dice"]:
-        if event["dice"] < 100:
-            rolls = roll(event["dice"])
-        else:
-            result = {"err":"%s was more than 99 dice." % event["dice"]}
-            return result
-    else:
-        rolls = roll(0)
+    dice_check = check_dice(event)
     # Pre-edging in ShadowRun means you get to re-roll 6s.
     # But they explode, so we've another function special for them.
     if event["edge"]:
