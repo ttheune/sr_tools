@@ -24,45 +24,38 @@ def edge(sixes):
 def results(rolls, edges, init, verbose):
     # Build the result json
     result = {
-        "rolls":rolls,
-        "edges":edges,
-        "glitch":None,
-        "verbose":verbose,
-        "err":None
+        'rolls':rolls,
+        'edges':edges,
+        'glitch':None,
+        'verbose':verbose,
+        'err':None
     }
     #dice, ones, hits = calc_rols(rolls, edges)
     # Set the total number of dice rolled
     # this is to more easily calculate glitches as
     # well as returning to the user how many more
     # dice were rolled if they used Edge
-    result["dice"] = dice
-    if calc_glitches(ones, dice, hits):
-
+    result['dice'] = dice
     # Check for a Crit Glitch or regular Glitch
-    if ones > dice/2:
-        if hits == 0:
-            result["glitch"] = "Critical"
-        else:
-            result["glitch"] = hits
+    result['glitch'] = calc_glitches(ones, dice, hits)
     # Always return how many total hits, even if we don't use them
-    result["hits"] = hits
-
+    result['hits'] = hits
     if init:
         results.update(count_init(rolls, edges, init, dice))
     else:
-        result["passes"] = None
-        result["init"] = None
+        result['passes'] = None
+        result['init'] = None
     # Return a json string with a base of:
-    # {"passes": null, "hits": 0, "dice": 0, "err": null, "glitch": null, "init": null, "edges": null, "rolls": [0, 0, 0, 0, 0, 0]}
+    # {'passes': null, 'hits': 0, 'dice': 0, 'err': null, 'glitch': null, 'init': null, 'edges': null, 'rolls': [0, 0, 0, 0, 0, 0]}
     return result
 
 def check_init(edges, init, dice):
     # Rules for what's allowed in init
-    if edges: return result = {"err":"You can not pre-edge initiative"}
-    if not isinstance(init, (int)): return result = {"err":"%s is not an integer" % init}
-    if init < 0: return result = {"err":"Positive numbers only"}
-    if init > 20: return result = {"err":"Max possible initiative score is 20"}
-    if dice > 5: return result = {"err":"Max possible initiative dice is 5"}
+    if edges: return result = {'err':'You can not pre-edge initiative'}
+    if not isinstance(init, (int)): return result = {'err':'%s is not an integer' % init}
+    if init < 0: return result = {'err':'Positive numbers only'}
+    if init > 20: return result = {'err':'Max possible initiative score is 20'}
+    if dice > 5: return result = {'err':'Max possible initiative dice is 5'}
 
 def calc_rolls(rolls, edges):
     # Calculate number of 4's and 5's for hits
@@ -105,17 +98,17 @@ def count_init(rolls, edges, init, dice):
         result = {'passes': init/10+1}
     else:
         result = {'passes': init/10}
-    result["init"] = init
+    result['init'] = init
     return result
 
 def check_dice(event):
     # Lets make sure we aren't trying to randomize the universe,
     # keep it to two digits of dice
-    if event["dice"]:
-        if event["dice"] < 100:
-            rolls = roll(event["dice"])
+    if event['dice']:
+        if event['dice'] < 100:
+            rolls = roll(event['dice'])
         else:
-            result = {"err":"%s was more than 99 dice." % event["dice"]}
+            result = {'err':'%s was more than 99 dice.' % event['dice']}
             return result
     else:
         return roll(0)
@@ -128,15 +121,15 @@ def lambda_handler(event, context):
     dice_check = check_dice(event)
     # Pre-edging in ShadowRun means you get to re-roll 6s.
     # But they explode, so we've another function special for them.
-    if event["edge"]:
+    if event['edge']:
         edges = edge(rolls[5])
     else:
         edges = None
     # Pass verbose information
-    if event["verbose"]:
+    if event['verbose']:
         verbose = True
     else:
         verbose = None
 
     # Pass on the output from results() to the user
-    return results(rolls, edges, event["init"], verbose)
+    return results(rolls, edges, event['init'], verbose)
