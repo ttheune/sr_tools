@@ -66,6 +66,78 @@
     <tag group="SkillList" tag="skaSoftwar" name="Software" abbrev="Software"/>
     <tag group="HasForm" tag="cfECleaner"/>
   </thing>
+  <thing id="cfEIoAtt" name="Infusion of Attack - Errata" description="Resonance floods the target device, boosting the specified attribute. The Level of the complex form must equal or exceed the value of the attribute being affected. The attribute is increased by the number of hits scored, up to twice the target’s normal rating (any hits that would increase the attribute beyond this maximum are ignored).\n\nEach attribute can only be affected by a single Infusion at a time. If an attribute boosted by this spell is swapped in a Reconfigure action, this complex form ends." compset="Form">
+    <fieldval field="spDrain" value="-2"/>
+    <tag group="PowTarget" tag="Device" name="Device" abbrev="Device"/>
+    <tag group="User" tag="Unique" name="Elevate" abbrev="Elevate"/>
+    <tag group="PowDur" tag="Sustained" name="Sustained" abbrev="S"/>
+  </thing>
+  <thing id="spEIoAtt" name="Infusion of Attack - Errata" compset="Special" uniqueness="useronce">
+    <tag group="Helper" tag="FormSpec" name="Complex Form Modifier Collector" abbrev="Complex Form Modifier Collector"/>
+    <tag group="SkillHelp" tag="SpecModCol" name="Also a Modifier Collector" abbrev="Also a Modifier Collector"/>
+    <tag group="SkillList" tag="skaSoftwar" name="Software" abbrev="Software"/>
+    <tag group="HasForm" tag="cfEIoAtt"/>
+  </thing>
+  <thing id="cfEIoSlea" name="Infusion of Sleaze - Errata" description="Resonance floods the target device, boosting the specified attribute. The Level of the complex form must equal or exceed the value of the attribute being affected. The attribute is increased by the number of hits scored, up to twice the target’s normal rating (any hits that would increase the attribute beyond this maximum are ignored).\n\nEach attribute can only be affected by a single Infusion at a time. If an attribute boosted by this spell is swapped in a Reconfigure action, this complex form ends." compset="Form">
+    <fieldval field="spDrain" value="-2"/>
+    <tag group="PowTarget" tag="Device" name="Device" abbrev="Device"/>
+    <tag group="User" tag="Unique" name="Elevate" abbrev="Elevate"/>
+    <tag group="PowDur" tag="Sustained" name="Sustained" abbrev="S"/>
+  </thing>
+  <thing id="spEIoSlea" name="Infusion of Sleaze - Errata" compset="Special" uniqueness="useronce">
+    <tag group="Helper" tag="FormSpec" name="Complex Form Modifier Collector" abbrev="Complex Form Modifier Collector"/>
+    <tag group="SkillHelp" tag="SpecModCol" name="Also a Modifier Collector" abbrev="Also a Modifier Collector"/>
+    <tag group="SkillList" tag="skaSoftwar" name="Software" abbrev="Software"/>
+    <tag group="HasForm" tag="cfEIoSlea"/>
+  </thing>
+  <thing id="cfEIoDP" name="Infusion of Data Processing - Errata" description="Resonance floods the target device, boosting the specified attribute. The Level of the complex form must equal or exceed the value of the attribute being affected. The attribute is increased by the number of hits scored, up to twice the target’s normal rating (any hits that would increase the attribute beyond this maximum are ignored).\n\nEach attribute can only be affected by a single Infusion at a time. If an attribute boosted by this spell is swapped in a Reconfigure action, this complex form ends." compset="Form">
+    <fieldval field="spDrain" value="-2"/>
+    <tag group="PowTarget" tag="Device" name="Device" abbrev="Device"/>
+    <tag group="User" tag="Unique" name="Elevate" abbrev="Elevate"/>
+    <tag group="PowDur" tag="Sustained" name="Sustained" abbrev="S"/>
+  </thing>
+  <thing id="spEIoDP" name="Infusion of Data Processing - Errata" compset="Special" uniqueness="useronce">
+    <tag group="Helper" tag="FormSpec" name="Complex Form Modifier Collector" abbrev="Complex Form Modifier Collector"/>
+    <tag group="SkillHelp" tag="SpecModCol" name="Also a Modifier Collector" abbrev="Also a Modifier Collector"/>
+    <tag group="SkillList" tag="skaSoftwar" name="Software" abbrev="Software"/>
+    <tag group="HasForm" tag="cfEIoDP"/>
+  </thing>
+  <thing id="cfEIoFire" name="Infusion of Firewall - Errata" description="Resonance floods the target device, boosting the specified attribute. The Level of the complex form must equal or exceed the value of the attribute being affected. The attribute is increased by the number of hits scored, up to twice the target’s normal rating (any hits that would increase the attribute beyond this maximum are ignored).\n\nEach attribute can only be affected by a single Infusion at a time. If an attribute boosted by this spell is swapped in a Reconfigure action, this complex form ends." compset="Form">
+    <fieldval field="spDrain" value="-2"/>
+    <tag group="PowTarget" tag="Device" name="Device" abbrev="Device"/>
+    <tag group="User" tag="Unique" name="Elevate" abbrev="Elevate"/>
+    <tag group="PowDur" tag="Sustained" name="Sustained" abbrev="S"/>
+  </thing>
+  <thing id="spEIoFire" name="Infusion of Firewall - Errata" compset="Special" uniqueness="useronce">
+    <tag group="Helper" tag="FormSpec" name="Complex Form Modifier Collector" abbrev="Complex Form Modifier Collector"/>
+    <tag group="SkillHelp" tag="SpecModCol" name="Also a Modifier Collector" abbrev="Also a Modifier Collector"/>
+    <tag group="SkillList" tag="skaSoftwar" name="Software" abbrev="Software"/>
+    <tag group="HasForm" tag="cfEIoFire"/>
+  </thing>
+  <thing id="cfEDoAtt" name="Diffusion of Attack - Errata" description="Make an Opposed Software + Resonance [Level] v. Willpower + Firewall test. If you win, the target&apos;s attribute is reduced by your net hits. You can&apos;t reduce an attribute to less than 1." compset="Form">
+    <fieldval field="spDrain" value="-2"/>
+    <tag group="PowTarget" tag="Device" name="Device" abbrev="Device"/>
+    <tag group="User" tag="Unique" name="Elevate" abbrev="Elevate"/>
+    <tag group="PowDur" tag="Sustained" name="Sustained" abbrev="S"/>
+  </thing>
+  <thing id="spEDoAtt" name="Diffusion of Attack - Errata" compset="Special" uniqueness="useronce">
+    <tag group="Helper" tag="FormSpec" name="Complex Form Modifier Collector" abbrev="Complex Form Modifier Collector"/>
+    <tag group="SkillHelp" tag="SpecModCol" name="Also a Modifier Collector" abbrev="Also a Modifier Collector"/>
+    <tag group="SkillList" tag="skaSoftwar" name="Software" abbrev="Software"/>
+    <tag group="HasForm" tag="cfEDoAtt"/>
+  </thing>
+  <thing id="cfEDoSlea" name="Diffusion of Sleaze - Errata" description="Make an Opposed Software + Resonance [Level] v. Willpower + Firewall test. If you win, the target&apos;s attribute is reduced by your net hits. You can&apos;t reduce an attribute to less than 1." compset="Form">
+    <fieldval field="spDrain" value="-2"/>
+    <tag group="PowTarget" tag="Device" name="Device" abbrev="Device"/>
+    <tag group="User" tag="Unique" name="Elevate" abbrev="Elevate"/>
+    <tag group="PowDur" tag="Sustained" name="Sustained" abbrev="S"/>
+  </thing>
+  <thing id="spEDoSlea" name="Diffusion of Sleaze - Errata" compset="Special" uniqueness="useronce">
+    <tag group="Helper" tag="FormSpec" name="Complex Form Modifier Collector" abbrev="Complex Form Modifier Collector"/>
+    <tag group="SkillHelp" tag="SpecModCol" name="Also a Modifier Collector" abbrev="Also a Modifier Collector"/>
+    <tag group="SkillList" tag="skaSoftwar" name="Software" abbrev="Software"/>
+    <tag group="HasForm" tag="cfEDoSlea"/>
+  </thing>
   <thing id="cfEDoDP" name="Diffusion of Data Processing - Errata" description="Make an Opposed Software + Resonance [Level] v. Willpower + Firewall test. If you win, the target&apos;s attribute is reduced by your net hits. You can&apos;t reduce an attribute to less than 1." compset="Form">
     <fieldval field="spDrain" value="-2"/>
     <tag group="PowTarget" tag="Device" name="Device" abbrev="Device"/>
