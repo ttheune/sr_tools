@@ -250,7 +250,7 @@
     <fieldval field="spDrain" value="-3"/>
     <tag group="PowTarget" tag="Persona" name="Persona" abbrev="Persona"/>
     <tag group="User" tag="Unique" name="Elevate" abbrev="Elevate"/>
-    <tag group="PowDur" tag="Instant" name="Instant" abbrev="I"/>
+    <tag group="PowDur" tag="Sustained" name="Sustained" abbrev="S"/>
   </thing>
   <thing id="spEPusleSt" name="Pulse Storm - Errata" compset="Special" uniqueness="useronce">
     <tag group="Helper" tag="FormSpec" name="Complex Form Modifier Collector" abbrev="Complex Form Modifier Collector"/>
