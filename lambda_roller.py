@@ -1,5 +1,6 @@
 from random import randint
 
+
 # For number of dice returns an array of the counts
 # [1s, 2s, 3s, 4s, 5s, 6s]
 def roll(dice):
@@ -8,6 +9,7 @@ def roll(dice):
         singleRoll = randint(1, 6)
         counts[singleRoll - 1] += 1
     return counts
+
 
 # For number of 6s returns an array of the counts
 # With exploding rolls for more 6s
@@ -20,17 +22,18 @@ def edge(sixes):
             counts[j] += explode[j]
     return counts
 
+
 # Determine the result of the roll
 def results(rolls, edges, init, verbose):
     # Build the result json
     result = {
-        'rolls':rolls,
-        'edges':edges,
-        'glitch':None,
-        'verbose':verbose,
-        'err':None
+        'rolls': rolls,
+        'edges': edges,
+        'glitch': None,
+        'verbose': verbose,
+        'err': None
     }
-    #dice, ones, hits = calc_rols(rolls, edges)
+    # dice, ones, hits = calc_rols(rolls, edges)
     # Set the total number of dice rolled
     # this is to more easily calculate glitches as
     # well as returning to the user how many more
@@ -49,13 +52,20 @@ def results(rolls, edges, init, verbose):
     # {'passes': null, 'hits': 0, 'dice': 0, 'err': null, 'glitch': null, 'init': null, 'edges': null, 'rolls': [0, 0, 0, 0, 0, 0]}
     return result
 
+
 def check_init(edges, init, dice):
     # Rules for what's allowed in init
-    if edges: return result = {'err':'You can not pre-edge initiative'}
-    if not isinstance(init, (int)): return result = {'err':'%s is not an integer' % init}
-    if init < 0: return result = {'err':'Positive numbers only'}
-    if init > 20: return result = {'err':'Max possible initiative score is 20'}
-    if dice > 5: return result = {'err':'Max possible initiative dice is 5'}
+    if edges:
+        return result = {'err': 'You can not pre-edge initiative'}
+    if not isinstance(init, (int)):
+        return result = {'err': '%s is not an integer' % init}
+    if init < 0:
+        return result = {'err': 'Positive numbers only'}
+    if init > 20:
+        return result = {'err': 'Max possible initiative score is 20'}
+    if dice > 5:
+        return result = {'err': 'Max possible initiative dice is 5'}
+
 
 def calc_rolls(rolls, edges):
     # Calculate number of 4's and 5's for hits
@@ -67,13 +77,15 @@ def calc_rolls(rolls, edges):
         dice += rolls[i] if not edges else rolls[i] + edges[i]
     return dice, ones, hits
 
+
 def calc_glitches(ones, dice, hits):
     # Check for a Crit Glitch or regular Glitch
-    if ones > dice/2:
+    if ones > dice / 2:
         if hits == 0:
             return 'Critical'
         else:
             return hits
+
 
 def calc_init(rolls, init):
     # Add the roll results instead of counting them
@@ -85,6 +97,7 @@ def calc_init(rolls, init):
     init += total
     return init
 
+
 def count_init(rolls, edges, init, dice):
     # Calculating initiative is completely different, but we still
     # use 6 sided dice to figure it out, we just don't care about
@@ -92,14 +105,16 @@ def count_init(rolls, edges, init, dice):
     # Also, there are are more limits on the number of dice and the
     # value your base initiative can be.
     check = check_init(edges, init, dice)
-    if check: return check
+    if check:
+        return check
     init = calc_init(rolls, init)
     if init % 10 > 0:
-        result = {'passes': init/10+1}
+        result = {'passes': init / 10 + 1}
     else:
-        result = {'passes': init/10}
+        result = {'passes': init / 10}
     result['init'] = init
     return result
+
 
 def check_dice(event):
     # Lets make sure we aren't trying to randomize the universe,
@@ -108,10 +123,11 @@ def check_dice(event):
         if event['dice'] < 100:
             rolls = roll(event['dice'])
         else:
-            result = {'err':'%s was more than 99 dice.' % event['dice']}
+            result = {'err': '%s was more than 99 dice.' % event['dice']}
             return result
     else:
         return roll(0)
+
 
 # AWS Lambda tool, this is how we get data in to manipulate.
 def lambda_handler(event, context):

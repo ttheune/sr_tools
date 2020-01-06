@@ -1,0 +1,59 @@
+* Why do you want to join CCD? (And no. Because I asked for applicants is not a valid response)
+  A couple of reasons: 1) I enjoy character creation; 2) I like giving back to communities I'm a part of; 3) I'm in Europe and can provide some "off hours" support :)
+* How familiar with the rules are you (and/or sections thereof)?
+  I like to think I'm very familiar with them.  I'm particularly familiar with the Matrix rules, Alchemy and some of the newer stuff in FA I'm less familiar with.  One thing I'm very good at is referencing this books ;)
+* Which of the books do you own?
+  travist@Dina Shadowrun$ find Books -name "*.pdf"
+  Books/Core/Chrome_Flesh.pdf
+  Books/Core/Data_Trails.pdf
+  Books/Core/Forbidden_Arcana.pdf
+  Books/Core/Howling Shadows.pdf
+  Books/Core/Rigger_5.pdf
+  Books/Core/Run_&_Gun.pdf
+  Books/Core/Run_Faster_S.pdf
+  Books/Core/Shadowrun_Fifth_Edition_Core_Rulebook_(Master_Index_Edition).pdf
+  Books/Core/Street_Grimoire.pdf
+  Books/Deep Shadows/Cutting_Aces.pdf
+  Books/Deep Shadows/Hard_Targets.pdf
+  Books/Map Cards.pdf
+  Books/Shadows in Focus/SiF_Butte.pdf
+  Books/Shadows in Focus/SiF_Cheyenne.pdf
+  Books/Shadows in Focus/SiF_San_Francisco.pdf
+  Books/Shadows in Focus/SiF_Sioux_Nation.pdf
+  Books/Shadows in Focus/Sif_Starving_the_Masses.pdf
+  Books/Supplements/6WA World Map Poster.pdf
+  Books/Supplements/Aetherology.pdf
+  Books/Supplements/Bullets_&_Bandages.pdf
+  Books/Supplements/Character Cards.pdf
+  Books/Supplements/Complete_Trog.pdf
+  Books/Supplements/Emerald Shadows.pdf
+  Books/Supplements/Gang Card.pdf
+  Books/Supplements/Gun_H(e)aven_3.pdf
+  Books/Supplements/Map Reference Card.pdf
+  Books/Supplements/Market Panic.pdf
+  Books/Supplements/Ruling the Queen City.pdf
+  Books/Supplements/Seattle Box Instruction Sheet.pdf
+  Books/Supplements/Seattle Sprawl Map.pdf
+  Books/Supplements/Seattle2072.pdf
+  Books/Supplements/SixthWorldAlmanac.pdf
+  Books/Supplements/Tangled Threads.pdf
+  Books/Supplements/The_Assassins_Primer.pdf
+  Books/Supplements/Vice.pdf
+  Books/Z_Out of Date/Run_Faster.pdf
+  Books/Z_Out of Date/SR5_Errata.pdf
+  Books/Z_Previous_Editions/Shadowrun_Renraku_Arcology_Shutdown.pdf
+  Books/Z_Previous_Editions/Unwired.pdf
+* How familiar are you with the lore/thematics of Shadowrun?
+  I don't have Dunklezahn's Will memorized, and I've not read every novel that's written.  Shadowrun is my favorite RPG and I've been actively involved in the community for the last 4 or 5 years.
+* How familiar with the house rules are you?
+  Again, I don't have them memorized, but I'm familiar enough with them to know when and where to look.
+* Have you read the recent House Rule Updates and CCD updates?
+  Yes
+* How much of a munchkin are you? (A munchkin is a term we use for min-maxers. Being a min-maxer isn't inherently bad, but abusing it consistently is and recognising where that is happening is important)
+  I don't think I'm a munchkin at all, more of a snowflake, but always for story reasons rather than mechanical or crunch reasons.
+* Do you know the New Player Thread guide well?
+  Yes
+* How many games have you played on the Hub, and are you familiar with the Hub's play stlye?
+  0 (need to get this up before I submit this)
+* Do you use HeroLab or Chummer? If you have both, do you prefer one over the other, and are you still familiar with both?
+  Just HeroLab; I'm on a Mac.  I can probably get Chummer running since most Hub Runners probably use Chummer rather than HL.  I'm *far* more familiar with HL.
