@@ -19,6 +19,7 @@ roller_token = kms.decrypt(CiphertextBlob=b64decode(ENCRYPTED_ROLLER_TOKEN))['Pl
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 
+
 # Simple json response to slack
 def respond(err, res=None):
     return {
@@ -29,19 +30,21 @@ def respond(err, res=None):
         },
     }
 
+
 # Call the roller api and pass on the json response
 # See https://github.com/ttheune/sr_tools/blob/master/lambda_roller.py for details
 def roll(dice, edge=None, init=None, verbose=None):
     base_url = 'https://api.tenminutesout.net/v1/sr_roller'
-    headers = {'x-api-key':roller_token}
+    headers = {'x-api-key': roller_token}
     data = {
-        "dice":int(dice),
-        "edge":bool(edge),
-        "init":init,
-        "verbose":bool(verbose)
+        "dice": int(dice),
+        "edge": bool(edge),
+        "init": init,
+        "verbose": bool(verbose)
     }
     response = requests.post(base_url, headers=headers, data=json.dumps(data))
     return response.json()
+
 
 # Read the text field from slack and try to clean it up
 # so we can send it to the roller API
@@ -57,38 +60,39 @@ def parse_text(text):
 
     # Get the number of dice, and make sure the first field is an int
     try:
-        dice = int(re.search('^\d+',text).group(0))
-    except:
+        dice = int(re.search(r'^\d+', text).group(0))
+    except Exception:
         output = "Request did not begin with a number.\n"
-        return {'err':output + usage}
+        return {'err': output + usage}
 
     # initiative is handled differently, pull the number before and after the word
     # to send dice and value to the roller API
-    if "init" in text:
+    if 'init' in text:
         try:
-            init = int(re.search('(?<=init )\d+',text).group(0))
-        except:
+            init = int(re.search(r'(?<=init )\d+', text).group(0))
+        except Exception:
             output = "Tried to roll init without an initiative score.\n"
-            return {'err':output + usage}
-        if "verb" in text:
-            return roll(dice,init=init,verbose=True)
+            return {'err': output + usage}
+        if 'verb' in text:
+            return roll(dice, init=init, verbose=True)
         else:
-            return roll(dice,init=True)
+            return roll(dice, init=init)
 
     # Check for edge, if it's there, send the bool to the roller API with the die pool
-    elif "edge" in text:
-        if "verb" in text:
-            return roll(dice,edge=True,verbose=True)
+    elif 'edge' in text:
+        if 'verb' in text:
+            return roll(dice, edge=True, verbose=True)
         else:
-            return roll(dice,edge=True)
+            return roll(dice, edge=True)
 
     # Simplest case, just take the digits at the begining of the text and send those
     # to the roller API regardless of what else follows.
     else:
-        if "verb" in text:
-            return roll(dice,verbose=True)
+        if 'verb' in text:
+            return roll(dice, verbose=True)
         else:
             return roll(dice)
+
 
 # Take the results from parse_test() and build a human friendly response to
 # post in Slack.
@@ -104,15 +108,16 @@ def results(results):
     elif results['glitch']:
         output = "Glitch!\n"
     if results['init']:
-        output += "You get %s passes at %s\n" % (results['passes'],results['init'])
+        output += "You get %s passes at %s\n" % (results['passes'], results['init'])
     else:
-        output += "You got %s hits on %s dice\n" % (results['hits'],results['dice'])
+        output += "You got %s hits on %s dice\n" % (results['hits'], results['dice'])
     if results['verbose']:
         for c in range(6):
-            output += ":die_%s: %s " % (c+1,results['rolls'][c])
+            output += ":die_%s: %s " % (c + 1, results['rolls'][c])
 
     # Return the response to the channel so everyone can see.
-    return {"text":output,"response_type":"in_channel"}
+    return {'text': output, 'response_type': 'in_channel'}
+
 
 # AWS Lambda tool, this is how we get data in to manipulate.
 def lambda_handler(event, context):
